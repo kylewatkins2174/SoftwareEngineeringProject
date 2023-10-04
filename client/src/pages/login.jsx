@@ -8,7 +8,6 @@ const login = () => {
                 <input className="login-input" type="text" placeholder="Username"></input>
                 <input className="login-input" type="text" placeholder="Password"></input>
             </div>
-
         </div>
     )
 }
