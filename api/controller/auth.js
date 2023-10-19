@@ -18,7 +18,7 @@ export const register = async(req,res) => {
                 const hash = bcrypt.hashSync(req.body.password, salt)
 
                 const insertQ = "INSERT INTO users VALUES(?)"
-                db.query(insertQ, [[/*insert values here*/]], (error, rows, fields) => {
+                db.query(insertQ, [[req.body.firstname, req.body.lastname, req.body.email, req.body.username]], (error, rows, fields) => {
                     if(error){
                         return res.status(500).json(error)
                     }

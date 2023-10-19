@@ -1,20 +1,15 @@
+drop database things;
 create database things;
 use things;
 
-
 create table users (
-userid int,
+userid int auto_increment not null,
 firstname nvarchar(255),
 lastname nvarchar(255),
 email nvarchar(255),
 username nvarchar(255),
+passw nvarchar(50),
 PRIMARY KEY (userid)
-);
-
-create table passwords(
-userid int,
-password nvarchar(255),
-FOREIGN KEY (userid) references Users(userid)
 );
 
 create table userinventory (
@@ -24,4 +19,3 @@ userid int,
 PRIMARY KEY (itemid),
 FOREIGN KEY (userid) references Users(userid)
 );
-
