@@ -1,14 +1,31 @@
+
+import { Link } from 'react-router-dom'
 import './login.scss'
 
 
 const login = () => {
-    return(
-        <div className='outter-container'>
-            <div className='login-container'>
-                <input className="login-input" type="text" placeholder="Username"></input>
-                <input className="login-input" type="text" placeholder="Password"></input>
-            </div>
+    return (
+        <div className='center'>
+            <div className='login'>
+                <div className='left'>
+                    <h1>Ready to trade something old for something new</h1>
+                    <form>
+                        <input className="login-input" type="text" placeholder="Username"></input>
+                        <input className="login-input" type="password" placeholder="Password"></input>
+                        <span>
+                        </span>
+                        <button>Login</button>
+                    </form>
+                    <p>Want to create an account</p>
+                    
+                    <span>Sign up here </span>
+                    <Link to={"/register"}>
+                        <button>Create Your Account</button>
+                    </Link>
+                     
+                </div>
 
+            </div>
         </div>
     )
 }
