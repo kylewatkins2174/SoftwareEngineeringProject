@@ -1,3 +1,7 @@
+create database things;
+use things;
+
+
 create table users (
 userid int,
 firstname nvarchar(255),
@@ -18,6 +22,6 @@ itemid int,
 itemname nvarchar(255),
 userid int,
 PRIMARY KEY (itemid),
-FOREIGN KEY (useris) references Users(userid)
+FOREIGN KEY (userid) references Users(userid)
 );
 
