@@ -1,0 +1,52 @@
+.body-container{
+    background-color: #488286; 
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .info-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        margin: 25%;
+        margin-top: 10%;
+        background-color: #356265;
+        height: 50%;
+        width: 50%;
+        min-height: 50%;
+
+        .avatar{
+            margin-top: 15%;
+        }
+        .firstName{
+            margin: 0 auto;
+            width: 300px;
+            margin: 5px;
+        }
+        .lastName{
+            margin: 0 auto;
+            width: 300px;
+            margin: 5px;   
+        }
+        .userName{
+            color:white;
+            text-align: center;
+            margin: 0 auto;
+            width: 300px;
+            margin: 5px;  
+        }
+        .email{
+            color:white;
+            text-align: center;
+            margin: 0 auto;
+            width: 300px;
+            margin: 5px;    
+        }
+        .saveButton{
+            margin: 0 auto;
+            width: 100px;
+            margin: 5px;   
+        }
+    }
+}
