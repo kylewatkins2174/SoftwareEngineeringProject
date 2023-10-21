@@ -1,0 +1,22 @@
+.outter-container{
+    background-color: blue;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .login-container{
+        border-radius: 10px;
+        margin: 25%;
+        margin-top: 25vh;
+        background-color: red;
+        height: 50%;
+        width: 50%;
+
+        min-height: 50%;
+
+        .login-input{
+            margin: 5px;
+            border-radius: 5px;
+        }
+    }
+}
