@@ -1,7 +1,9 @@
 import './App.css';
 import Homepage from "./pages/homePage"
 import Login from "./pages/login"
+//import Register from "./pages/register"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import Register from './pages/register';
 
 function App() {
 
@@ -16,6 +18,12 @@ function App() {
       path:"/home",
       element: (
         <Homepage/>
+      )
+    },
+    {
+      path:"/register",
+      element:(
+        <Register/>
       )
     }
 
