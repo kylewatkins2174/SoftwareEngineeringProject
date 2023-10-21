@@ -18,13 +18,13 @@ function App() {
         <Homepage/>
       )
     }
-  ])
 
+  ])
 
   return (
     <div>
-      <RouterProvider router = {router}/>
-    </div>
+    <RouterProvider router = {router}/>
+  </div>
   );
 }
 
