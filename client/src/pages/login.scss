@@ -9,58 +9,30 @@
     .login {
         width: 75%;
         height: 75%;
-        display: flex;
         background-color: aliceblue;
         border-radius: 10px;
-        //gap: 100;
-
+        align-items: center;    
         .left {
-            flex: 1;
-            background-size: cover;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-
-            /*
-                border-radius: 10px;
-                margin: 25%;
-                margin-top: 25vh;
-                background-color: rgb(142, 209, 245);
-                height: 75%;
-                width: 50%;
-                min-height: 50%;
-            */
+            //flex: 1;
+            //background-size: cover;
+            padding: 60px;
+           // display: flex;
             h1 {
                 font-size: 50px;
                 line-height: 75px;
-                //gap: 40;
             }
 
             form {
-               gap: 40px;
+
                 input {
-
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 20px;
                 }
 
-                button {
-
-                    width: 50%;
-                    padding: 10px;
-                    border: none;
-                    background-color: purple;
-                }
             }
-
+                button {}
             button {}
-
-
-
-            /*.login-input{
-            //margin: 5px;
-            //border-radius: 5px;
-        }*/
-
         }
 
     }

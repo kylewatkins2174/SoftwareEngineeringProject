@@ -1,31 +1,31 @@
-.mid{
+.mid {
     height: 100vh;
     background-color: rgb(174, 174, 221);
     display: flex;
     align-items: center;
     justify-content: center;
-    .register{
-        width: 75%;
-        height: 75%;
-        display: flex;
-        background-color: aliceblue;
-        border-radius: 10px;
-        flex: 1;
-        background-size: cover;
-        padding: 40px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
 
-        h1{
-            
-        }
+    .register {
 
-        form{
+        .center {
+            width: 75%;
+            height: 75%;
+            display: flex;
+            background-color: aliceblue;
+            border-radius: 10px;
+            //flex: 1;
+            background-size: cover;
+            padding: 60px;
+            flex-direction: column;
+            gap: 10px;
 
-            input{}
-            button{
+            h1 {}
 
+            form {
+
+                input {}
+
+                button {}
             }
         }
     }
