@@ -1,12 +1,9 @@
 import './userPage.scss'
 
 const User = () => {
-    /*function saveClick() {
-        alert('Your information has been saved!');
-    }*/
     
-    return(
-        
+    return(  
+
         <div className='body-container'>
             <div className='info-container'>
                 <input type="file" className='avatar' id="uploader"></input>
@@ -21,3 +18,4 @@ const User = () => {
     )
     
 }
+export default User
