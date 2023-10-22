@@ -4,6 +4,7 @@ import Login from "./pages/login"
 //import Register from "./pages/register"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Register from './pages/register';
+import User from "./pages/userPage"
 
 function App() {
 
@@ -24,6 +25,12 @@ function App() {
       path:"/register",
       element:(
         <Register/>
+      )
+    },
+    {
+      path:"/user",
+      element:(
+        <User/>
       )
     }
 
