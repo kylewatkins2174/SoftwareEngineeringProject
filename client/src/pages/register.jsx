@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom'
 import "./register.scss"
 const Register = () => {
-    
+    const [inputs, setInputs] = useState({
+        "firstname" : "",
+        "lastname" : "",
+        "email" : "",
+        "username" : "",
+        
+    })
 
 
     return (
