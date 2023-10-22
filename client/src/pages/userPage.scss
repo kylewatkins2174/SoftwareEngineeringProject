@@ -1,0 +1,88 @@
+.body-container{
+    background-color: rgb(174, 174, 221); 
+    height: 100vh;
+    display: flex;
+
+    .avatar{
+        position: absolute;
+        margin: 200px 0px 0px 400px;
+        color: black; 
+    }
+
+    .info-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        margin: 25%;
+        margin-top: 10%;
+        background-color: aliceblue;
+        height: 50%;
+        width: 50%;
+        min-height: 50%;
+
+        .firstName{
+            border:none;
+            border-radius: 5px;
+            background-color: rgb(174, 174, 221); 
+            color: black;
+            height: 25px;
+            width: 300px;
+            margin: 5px;
+        }
+
+        .lastName{
+            border:none;
+            border-radius: 5px;
+            background-color: rgb(174, 174, 221); 
+            color: black;
+            height: 25px;
+            width: 300px;
+            margin: 5px;   
+        }
+        .userName{
+            border:none;
+            border-radius: 5px;
+            background-color: rgb(174, 174, 221); 
+            color:black;
+            height: 25px;
+            width: 300px;
+            margin: 5px;  
+        }
+        .email{
+            border:none;
+            border-radius: 5px;
+            background-color: rgb(174, 174, 221); 
+            color:black;
+            height: 25px;
+            width: 300px;
+            margin: 5px;    
+        }
+        .infoButton{
+            border:none;
+            border-radius: 5px;
+            background-color: rgb(174, 174, 221); 
+            height: 35px;
+            width: 100px;
+            margin: 5px; 
+            animation-name: colorChange;
+            animation-duration: 3s; 
+            animation-iteration-count: infinite;
+            animation-direction: alternate; 
+        }
+        .infoButton:hover{
+            background-color: rgb(134, 134, 169); 
+        }
+        input::placeholder {
+            color:black;
+        }
+        @keyframes colorChange {
+            0% {background-color: rgb(174, 174, 221);}
+            100% {background-color: rgb(166, 166, 234);}
+            0% {color: black;}
+            100% {color: rgb(75, 75, 75);}
+          }
+    }
+}
