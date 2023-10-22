@@ -2,7 +2,12 @@
     background-color: rgb(174, 174, 221); 
     height: 100vh;
     display: flex;
-    flex-direction: column;
+
+    .avatar{
+        position: absolute;
+        margin: 200px 0px 0px 400px;
+        color: black; 
+    }
 
     .info-container{
         display: flex;
@@ -18,13 +23,7 @@
         width: 50%;
         min-height: 50%;
 
-        .avatar{
-            color: black;  
-            margin:10px;
-        }
-
         .firstName{
-            text-align:center;
             border:none;
             border-radius: 5px;
             background-color: rgb(174, 174, 221); 
@@ -33,8 +32,8 @@
             width: 300px;
             margin: 5px;
         }
+
         .lastName{
-            text-align:center;
             border:none;
             border-radius: 5px;
             background-color: rgb(174, 174, 221); 
@@ -47,7 +46,6 @@
             border:none;
             border-radius: 5px;
             background-color: rgb(174, 174, 221); 
-            text-align:center;
             color:black;
             height: 25px;
             width: 300px;
@@ -57,7 +55,6 @@
             border:none;
             border-radius: 5px;
             background-color: rgb(174, 174, 221); 
-            text-align:center;
             color:black;
             height: 25px;
             width: 300px;
