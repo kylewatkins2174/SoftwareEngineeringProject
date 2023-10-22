@@ -1,8 +1,9 @@
 import './App.css';
 import Homepage from "./pages/homePage"
 import Login from "./pages/login"
-import User from "./pages/userPage"
+//import Register from "./pages/register"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import Register from './pages/register';
 
 function App() {
 
@@ -20,18 +21,18 @@ function App() {
       )
     },
     {
-      path:"/user",
-      element: (
-        <User/>
+      path:"/register",
+      element:(
+        <Register/>
       )
     }
-  ])
 
+  ])
 
   return (
     <div>
-      <RouterProvider router = {router}/>
-    </div>
+    <RouterProvider router = {router}/>
+  </div>
   );
 }
 
