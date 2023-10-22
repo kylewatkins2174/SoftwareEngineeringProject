@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './userPage.scss'
+import './userPage.scss';
 import './register.jsx';
 
 function User () {
@@ -11,7 +11,7 @@ function User () {
             <input type="file" id="submitAvatar" accept="image/jpg, image/png" className='avatar'></input>
             <div id="avatarDisplay"></div>
             <div className='info-container'>
-                <h1>Your Account</h1>
+                <h1 className='yourAccount'>Your Account</h1>
                 <form>
                 <input className="userName" placeholder="Username"></input><br/>
                 <input className="email" placeholder="email"></input><br/>
