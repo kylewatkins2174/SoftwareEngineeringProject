@@ -3,10 +3,24 @@
     height: 100vh;
     display: flex;
 
+    .things-title{
+        font-weight: bold;
+        font-size: 50px;
+        position: absolute;
+        margin: 20px 0px 0px 20px;
+        text-decoration: none;
+        color: white;
+    }
+    .things-title:hover{
+        animation: titleAnim 5s linear infinite;
+    }
     .avatar{
         position: absolute;
         margin: 200px 0px 0px 400px;
         color: black; 
+    }
+    .yourAccount{
+        color: rgb(174, 174, 221);   
     }
 
     .info-container{
@@ -75,14 +89,17 @@
         .infoButton:hover{
             background-color: rgb(134, 134, 169); 
         }
-        input::placeholder {
-            color:black;
-        }
+
         @keyframes colorChange {
-            0% {background-color: rgb(174, 174, 221);}
-            100% {background-color: rgb(166, 166, 234);}
             0% {color: black;}
-            100% {color: rgb(75, 75, 75);}
+            100% {color: white;}
+        }
+        @keyframes titleAnim {
+            0% {transform: rotateZ(0deg);}
+            25% {transform: rotateZ(15deg);}
+            50% {transform: rotateZ(0deg);}
+            75% {transform: rotateZ(-15deg);}
+            100% {transform: rotateZ(0deg);}
           }
     }
 }
