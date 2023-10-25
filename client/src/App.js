@@ -5,6 +5,7 @@ import Login from "./pages/login"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Register from './pages/register';
 import User from "./pages/userPage"
+import TradeCenter from "./pages/tradeCenter"
 
 function App() {
 
@@ -31,6 +32,12 @@ function App() {
       path:"/user",
       element:(
         <User/>
+      )
+    },
+    {
+      path:"/tradecenter",
+      element:(
+        <TradeCenter/>
       )
     }
 
