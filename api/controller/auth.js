@@ -53,6 +53,37 @@ export const login = async(req,res) => {
     })
 }
 
+export const userInfo = (req, res) => {
+    console.log("attempting to find user")
+
+    console.log("cookie" + req.cookies.accessToken)
+    try{
+        const accessToken = req.cookies.accessToken
+
+        if(accessToken === undefined){
+            return res.status(404).json("you are not logged in")
+        }
+        const userId = jwt.verify(accessToken, "secretkey").userid
+
+        console.log("userid: " + userId)
+
+        const q = 'SELECT * FROM users WHERE userid = ?'
+
+        console.log("before query")
+        db.query(q, [userId], async (error, rows, field) => {
+            if(error){
+                console.log(error)
+            }
+            console.log(JSON.stringify(rows[0]))
+
+            return res.status(200).json(rows[0])
+        })
+    }catch{
+        console.log("error when finding")
+        return res.status(404).json("you are not currently logged in")
+    }
+}
+
 export const logout = (req,res) => {
     try{
         res.clearCookie("accessToken", {
