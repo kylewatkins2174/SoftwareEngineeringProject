@@ -1,9 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { useState } from "react"
-import requestServer from "../axios.js"
+import { useContext, useState } from "react"
+import { AuthContext } from '../contexts/authContext.js'
 import './login.scss'
 
 const Login = () => {
+    const {login} = useContext(AuthContext)
+
     const navigate = useNavigate()
 
     const [inputs, setInputs] = useState({
@@ -23,12 +25,13 @@ const Login = () => {
 
         console.log(JSON.stringify(inputs))
 
-        requestServer.post("auth/login", inputs).then(response => {
-            console.log(response)
-            navigate("/home")
-        }).catch(err => {
-            setErr(err)
-        })
+        try{
+            await login(inputs).then(
+                navigate("/home")
+            )
+        }catch(err){
+            setErr(err.response.data)
+        }
     }
 
     return (
@@ -44,6 +47,7 @@ const Login = () => {
                     <span>
                     </span>
                     <button onClick={handleSubmit}>Login</button>
+                    <p>{err && err}</p>
                     <p>Want to create an account. Sign up here! </p>
 
                     <Link to={"/register"}>
