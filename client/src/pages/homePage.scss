@@ -1,39 +1,38 @@
-.body-container{
-    background-color: rgb(174, 174, 221); 
+.bodyContainerHome{
+    background-color: rgb(174, 174, 221);
     height: 100vh;
     display: flex;
 
-    .menu-container{
-        display: flex;
+    .menuContainerHome{
+        
         background-color: aliceblue;
-        height: 25%;
         width: 100%;
+        height: 20%;
+  
+        .thingsTitleHome{
+            font-weight: bold;
+            font-size: 50px;
+            position: relative;
+            text-decoration: none;
+            color: rgb(174, 174, 221); 
+         }
+        .thingsTitleHome:hover{
+            animation: titleAnim 5s linear infinite;
+         }
+        .menuItemRowHome {
+            margin-top: 2%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr; 
+            grid-gap: 10px;
+	    }
+	    .menuItemHome {
+            text-align: center;
+		    font-size: 40px;
+		    color: rgb(174, 174, 221);
+		    text-decoration:none;
+	    }
+        .menuItemHome:hover {
+		    color: rgb(134, 134, 169); 
+	    }
     }
-    .things-titleHome{
-        font-weight: bold;
-        font-size: 50px;
-        position: absolute;
-        margin: 2% 0% 0% 20%;
-        text-decoration: none;
-        color: rgb(174, 174, 221); 
-    }
-    .things-titleHome:hover{
-        animation: titleAnim 5s linear infinite;
-    }
-    .menuItemRow {
-		display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 8% 0% 0% 30%;
-        gap: 33%;
-	}
-	.menuItem {
-		font-size: 40px;
-		color: rgb(174, 174, 221);
-		text-decoration:none;
-	}
-    .menuItem:hover {
-		color: rgb(134, 134, 169); 
-	}
-
 }

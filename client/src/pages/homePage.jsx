@@ -3,13 +3,13 @@ import './homePage.scss'
 
 const homePage = () =>{
     return(
-        <div className='body-container'>
-            <div className='menu-container'>
-                <Link className="things-titleHome" to="/home">Things</Link>
-                <div className="menuItemRow">
-                    <span className="menuItem">Inventory</span>
-                    <span className="menuItem">Marketplace</span>
-                    <Link className="menuItem" to="/user">Account</Link>
+        <div className='bodyContainerHome'>
+            <div className='menuContainerHome'>
+                <Link className="thingsTitleHome" to="/home">Things</Link>
+                <div className="menuItemRowHome">
+                    <span className="menuItemHome" to="/user">Account</span>
+                    <Link className="menuItemHome" to="/tradecenter">Trade</Link>
+                    <Link className="menuItemHome" to="/user">Account</Link>
                 </div>
             </div>
         </div>

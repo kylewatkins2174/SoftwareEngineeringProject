@@ -57,25 +57,25 @@ function App() {
     {
       path:"/home",
       element: (
-        <ProtectedRoute>
+        /*<ProtectedRoute>*/
           <Homepage/>
-        </ProtectedRoute>
+        /*</ProtectedRoute>*/
       )
     },
     {
       path:"/user",
       element:(
-        <ProtectedRoute>
+        /*<ProtectedRoute>*/
           <User/>
-        </ProtectedRoute>
+        /*</ProtectedRoute>*/
       )
     },
     {
       path:"/tradecenter",
       element:(
-        <ProtectedRoute>
+       /* <ProtectedRoute>*/
           <TradeCenter/>
-        </ProtectedRoute>
+        /*</ProtectedRoute>*/
       )
     }
   ])
