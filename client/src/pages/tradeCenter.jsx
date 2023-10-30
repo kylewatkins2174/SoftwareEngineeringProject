@@ -3,7 +3,7 @@ import "./tradeCenter.scss"
 
 const App = () => {
     return (
-        <div>
+        <div className="tradeCenterBody">
             <header className="section header">
                 <h1>Things: Trade Center</h1>
                 <div className="header-text">Welcome, User</div>
