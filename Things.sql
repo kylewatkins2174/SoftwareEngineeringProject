@@ -12,10 +12,12 @@ passw nvarchar(50),
 PRIMARY KEY (userid)
 );
 
-create table userinventory (
-itemid int,
-itemname nvarchar(255),
+create table items (
+itemid int auto_increment not null,
 userid int,
+itemname nvarchar(255),
+itemdescr nvarchar(255),
+dateposted date,
 PRIMARY KEY (itemid),
 FOREIGN KEY (userid) references Users(userid)
 );
