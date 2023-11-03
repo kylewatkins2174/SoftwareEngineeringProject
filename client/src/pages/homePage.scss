@@ -1,7 +1,6 @@
 .bodyContainerHome{
     background-color:#ADD8E6;
     height: 100vh;
-    display: flex;
 
     .menuContainerHome{ 
         background-color: #00008B; 
@@ -41,6 +40,14 @@
             75% {transform: rotateZ(-15deg);}
             100% {transform: rotateZ(0deg);}
         }
+	    }
+        @keyframes titleAnim {
+            0% {transform: rotateZ(0deg);}
+            25% {transform: rotateZ(15deg);}
+            50% {transform: rotateZ(0deg);}
+            75% {transform: rotateZ(-15deg);}
+            100% {transform: rotateZ(0deg);}
+        }
         @media screen and (max-width: 500px) {
             .menuContainerHome {
               float: none;
@@ -53,4 +60,3 @@
             }
           }
     }
-}
