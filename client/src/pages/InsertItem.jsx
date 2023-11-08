@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 
 function AddItemToLibrary() {
-  const [item, setItem] = useState({
-    "item" : "Book"
-  })
+  const [item, setItem] = useState("Book")
 
 
   const handleChange = (e) => {
