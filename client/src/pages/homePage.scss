@@ -1,45 +1,38 @@
-.bodyContainerHome{
+.bodyContainerH{
     background-color:#ADD8E6;
     height: 100vh;
 
-    .menuContainerHome{ 
+    .menuContainerH{ 
         background-color: #00008B; 
         width: 100%;
         height: 200px;
   
-        .thingsTitleHome{
+        .thingsTitleH{
             font-weight: bold;
             font-size: 50px;
-            position: absolute;
+            position: relative;
             margin: 1% 0% 0% 1%;
             text-decoration: none;
             color:#ADD8E6;
          }
-        .thingsTitleHome:hover{
+        .thingsTitleH:hover{
             animation: titleAnim 5s linear infinite;
          }
-        .menuItemRowHome {
-            margin-top: 100px;
+        .menuItemRowH {
+            margin-top: 80px;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr; 
             grid-gap: 10px;
 	    }
-	    .menuItemHome {
+	    .menuItemH {
             text-align: center;
 		    font-size: 40px;
 		    color: #ADD8E6;
 		    text-decoration:none;
 	    }
-        .menuItemHome:hover {
+        .menuItemH:hover {
 		    color: rgb(134, 134, 169); 
 	    }
-        @keyframes titleAnim {
-            0% {transform: rotateZ(0deg);}
-            25% {transform: rotateZ(15deg);}
-            50% {transform: rotateZ(0deg);}
-            75% {transform: rotateZ(-15deg);}
-            100% {transform: rotateZ(0deg);}
-        }
 	    }
         @keyframes titleAnim {
             0% {transform: rotateZ(0deg);}
@@ -58,5 +51,5 @@
             .menuItemRowHome .menuItemHome {
               float: none;
             }
-          }
+        }
     }

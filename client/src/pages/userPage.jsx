@@ -7,7 +7,6 @@ function User () {
 
         <div className='bodyContainerUser'>
             <Link className="thingsTitleUser" to="/home">Things</Link>
-            <input type="file" id="submitAvatar" accept="image/jpg, image/png" className='avatarUser'></input>
             <div id="avatarDisplay"></div>
             <div className='infoContainerUser'>
                 <h1 className='yourAccountUser'>Your Account</h1>
