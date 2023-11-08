@@ -73,9 +73,9 @@ function App() {
     {
       path:"/tradecenter",
       element:(
-        <ProtectedRoute>
+        //<ProtectedRoute>
           <TradeCenter/>
-        </ProtectedRoute>
+        //</ProtectedRoute>
       )
     }
   ])

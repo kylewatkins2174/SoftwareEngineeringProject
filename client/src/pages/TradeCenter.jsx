@@ -1,7 +1,7 @@
 import React from 'react';
-import './Marketplace.scss';
+import './tradeCenter.scss';
 
-function Marketplace() {
+function TradeCenter() {
   return (
     <div className="body">
       <header className="section header">
@@ -37,4 +37,4 @@ function Marketplace() {
   );
 }
 
-export default Marketplace;
+export default TradeCenter;
