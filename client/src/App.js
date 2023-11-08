@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom"
 import { AuthContext } from "./contexts/authContext.js";
 import Register from './pages/register';
 import User from "./pages/userPage"
-import TradeCenter from "./pages/tradeCenter"
+import TradeCenter from "./pages/tradeCenter.jsx"
 import Homepage from "./pages/homePage"
 import Login from "./pages/login"
 
