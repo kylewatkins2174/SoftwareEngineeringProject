@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import authRoute from "./routes/auth.js"
+import tradeRoute from "./routes/trade.js"
 import cookieParser from 'cookie-parser';
 
 
@@ -17,6 +18,7 @@ app.use(cors({
 }));
 
 app.use("/api/auth", authRoute)
+app.use("/api/trade", tradeRoute)
 
 
 const port = 8800;

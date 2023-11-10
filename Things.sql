@@ -12,12 +12,44 @@ passw nvarchar(50),
 PRIMARY KEY (userid)
 );
 
-create table items (
-itemid int auto_increment not null,
+create table movies (
+movieid int auto_increment not null,
 userid int,
-itemname nvarchar(255),
-itemdescr nvarchar(255),
+title nvarchar(255),
+producer nvarchar(255),
+descr nvarchar(255),
 dateposted date,
-PRIMARY KEY (itemid),
+PRIMARY KEY (movieid),
 FOREIGN KEY (userid) references Users(userid)
+);
+
+create table books (
+bookid int auto_increment not null,
+userid int, 
+title nvarchar (255),
+author nvarchar (255),
+descr nvarchar (255),
+dateposted date,
+PRIMARY KEY (bookid),
+FOREIGN KEY (userid) references Users(userid)
+);
+
+create table cds (
+cdid int auto_increment not null,
+userid int,
+title nvarchar (255),
+descr nvarchar (255),
+dateposted date,
+PRIMARY KEY (cdid),
+FOREIGN KEY (userid) references Users(userid)
+);
+
+create table vinyls (
+vinylid int auto_increment not null,  
+userid int,
+title nvarchar(255),
+descr nvarchar (255),
+dateposted date,
+PRIMARY KEY (vinylid),
+FOREIGN KEY (userid) references Users(userid) 
 );

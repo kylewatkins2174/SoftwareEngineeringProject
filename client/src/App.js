@@ -3,9 +3,10 @@ import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom"
 import { AuthContext } from "./contexts/authContext.js";
 import Register from './pages/register';
 import User from "./pages/userPage"
-import TradeCenter from "./pages/tradeCenter"
+import TradeCenter from "./pages/tradeCenter.jsx"
 import Homepage from "./pages/homePage"
 import Login from "./pages/login"
+import InsertItem from "./pages/InsertItem.jsx"
 
 function App() {
   console.log("attempting display")
@@ -57,25 +58,33 @@ function App() {
     {
       path:"/home",
       element: (
-        /*<ProtectedRoute>*/
+        <ProtectedRoute>
           <Homepage/>
-        /*</ProtectedRoute>*/
+        </ProtectedRoute>
       )
     },
     {
       path:"/user",
       element:(
-        /*<ProtectedRoute>*/
+        <ProtectedRoute>
           <User/>
-        /*</ProtectedRoute>*/
+        </ProtectedRoute>
       )
     },
     {
       path:"/tradecenter",
       element:(
-       /* <ProtectedRoute>*/
+        //<ProtectedRoute>
           <TradeCenter/>
-        /*</ProtectedRoute>*/
+        //</ProtectedRoute>
+      )
+    },
+    {
+      path:"/insertitem",
+      element:(
+        //<ProtectedRoute>
+          <InsertItem/>
+        //</ProtectedRoute>
       )
     }
   ])
