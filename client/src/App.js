@@ -7,6 +7,7 @@ import TradeCenter from "./pages/tradeCenter.jsx"
 import Homepage from "./pages/homePage"
 import Login from "./pages/login"
 import InsertItem from "./pages/InsertItem.jsx"
+import ForgotPassword from "./pages/forgotPassword.jsx"
 
 function App() {
   console.log("attempting display")
@@ -85,6 +86,14 @@ function App() {
         //<ProtectedRoute>
           <InsertItem/>
         //</ProtectedRoute>
+      )
+    },
+    {
+      path:"/forgotPassword",
+      element: (
+        <ForwardRoute>
+          <forgotPassword/>
+        </ForwardRoute>
       )
     }
   ])
