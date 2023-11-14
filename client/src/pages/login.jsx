@@ -46,10 +46,12 @@ const Login = () => {
                     </form>
                     <span>
                     </span>
+
                     <button onClick={handleSubmit}>Login</button>
                     <p>{err && err}</p>
-                    <p>Want to create an account. Sign up here! </p>
 
+
+                    <p>Want to create an account. Sign up here! </p>
                     <Link to={"/register"}>
                         <button>Create Your Account</button>
                     </Link>
