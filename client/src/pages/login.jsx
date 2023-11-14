@@ -50,9 +50,6 @@ const Login = () => {
                     <button onClick={handleSubmit}>Login</button>
                     <p>{err && err}</p>
 
-                    <Link to={"/forgotPassword"}>
-                    <button>Forgot Password</button>
-                    </Link>
 
                     <p>Want to create an account. Sign up here! </p>
                     <Link to={"/register"}>
