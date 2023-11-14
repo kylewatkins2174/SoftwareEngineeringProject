@@ -95,7 +95,7 @@ const Register = () => {
                         <input onChange={handleChange} name="username" className="login-input" type="text" placeholder="Username"></input>
                         <input onChange={handlePasswordChange} name="password" className={`login-input ${isValidPassword ? "" : "invalid"}`} type="password" placeholder="Password"></input>
                     </form>
-                    {/*isValidEmail || <div className="error">Invalid email format</div>*/}
+                    
                     <button onClick={handleSubmit} disabled={!isValidEmail || !isValidPassword}>Register</button>
                     {isValidEmail || (
                         <div className="error">Invalid email format</div>
