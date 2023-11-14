@@ -16,8 +16,7 @@
     }
     .yourAccountUser{
         color:white; 
-        position: relative;
-        margin: 3% 0% 0% 3%;
+        text-align:center;
     }
 
     .infoContainerUser{
@@ -28,7 +27,7 @@
         border-radius: 5%;
         margin:10% 25% 0% 25%;
         background-color: #05386B;
-        height: 50%;
+        height: 50vh;
         width: 50%;
 
         .userDataUser{
@@ -36,7 +35,7 @@
             color: white;
             position: relative;
         }
-        .emailUser{
+        .inputUser{
             position:relative;
             border:none;
             border-radius: 5px;
