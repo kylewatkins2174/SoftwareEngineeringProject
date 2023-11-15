@@ -28,12 +28,20 @@ const Register = () => {
         e.preventDefault();
         console.log(JSON.stringify(inputs))
 
-        requestServer.post("/auth/register", inputs).then(response => {
-            console.log(response)
-            navigate("/login")
-        }).catch(err => {
+        try{
+            requestServer.post("/auth/register", inputs).then(response => {
+                console.log(response)
+                navigate("/login")
+            }).catch(err => {
+                console.log("error on register page")
+                setErr("error logging in")
+            })
+        }catch(error){
+            console.log("error on register page2")
             setErr(err)
-        })
+        }
+
+
     }
 
 
