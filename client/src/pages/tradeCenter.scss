@@ -8,10 +8,10 @@
   flex-direction: column; /* Change to column layout */
 }
 
-.container, .container2 {
-  background-color: aliceblue;
-  max-width: 800px;
-  width: 100%;
+.container {
+  max-width: 1000px; /* Increased max-width for a wider container */
+  width: 90%; /* Adjusted width */
+  height: 300px; /* Reduced height for a shorter container */
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -19,9 +19,26 @@
 }
 
 .section {
-  margin-bottom: 20px;
+  margin-bottom: 10px; /* Reduced margin between container and section */
   padding: 20px;
   border: 1px solid #ccc;
+
+  h2 {
+      margin-bottom: 10px; /* Added margin for h2 elements */
+  }
+
+  ul {
+      padding: 0;
+
+      li {
+          margin-bottom: 10px;
+          font-size: 16px;
+      }
+  }
+
+  .user-section {
+      margin-top: 10px;
+  }
 }
 
 .header {
@@ -47,20 +64,26 @@
   text-align: center;
 }
 
-.WelcomeUser, .Library {
+.WelcomeUser,
+.Library {
   font-size: 18px;
   margin-left: 10px;
 }
 
-.container-title, .container2-title {
+.container-title {
   background-color: #176B87;
   color: white;
-  padding: 5px 10px;
+  padding: 20px; /* Keep the padding for the title the same */
   border-radius: 5px;
   position: absolute;
   top: 10px;
   left: 10px;
   font-size: 14px;
+}
+
+.item-section {
+  margin-top: 20px;
+  width: 1000px;
 }
 
 ul {
@@ -70,5 +93,9 @@ ul {
 
 ul li {
   margin-bottom: 10px;
+  font-size: 16px;
 }
 
+.user-section {
+  margin-top: 10px;
+}
