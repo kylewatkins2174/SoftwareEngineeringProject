@@ -8,6 +8,7 @@ import Homepage from "./pages/homePage"
 import Login from "./pages/login"
 import InsertItem from "./pages/InsertItem.jsx"
 
+
 function App() {
   console.log("attempting display")
   const {userValues, getUser} = useContext(AuthContext)
