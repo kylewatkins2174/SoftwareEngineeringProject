@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
-import axios from 'axios';
 import './userPage.scss';
 import requestServer from "../axios"
 
@@ -30,16 +29,16 @@ function User () {
                 setErr(err)
             })
         }
-      /*  const [getThings, setThings] = useState([]);
+      const [getThings, setThings] = useState([]);
         useEffect(()=>{
             const getThings= async ()=>{
-                const res = fetch('');
+                const res = fetch('localhost:3306');
                 const getdata = (await res).json();
                 setThings(getdata);
                 console.log(getdata);
             }
             getThings();
-        },[]);*/
+        },[]);
    
     return(  
 
@@ -50,9 +49,9 @@ function User () {
                 <h1 className='yourAccountUser'>Your Account</h1>
                 <form>
                 <p className="userDataUser">Your Username</p><br/>
-                <input onChange={handleChange} /*name="email"*/ className="inputUser" /*key={email.userId}*/ type="text" placeholder="email"/*{email.name}*/></input><br/>
-                <input onChange={handleChange} /*name="firstname"*/ className="inputUser" /*key={firstname.userId}*/ type="text" placeholder="First Name"/*{firstname.name}*/></input><br/>
-                <input onChange={handleChange} /*name="lastname"*/ className="inputUser" /*key={lastname.userId}*/ type="text" placeholder="Last Name"/*{lastname.name}*/></input><br/><br/>
+                <input onChange={handleChange} name="email" className="inputUser" key={email.userId} type="text" placeholder={email.name}></input><br/>
+                <input onChange={handleChange} name="firstname" className="inputUser" key={firstname.userId} type="text" placeholder={firstname.name}></input><br/>
+                <input onChange={handleChange} name="lastname" className="inputUser" key={lastname.userId} type="text" placeholder={lastname.name}></input><br/><br/>
                 <button onChange={handleUpdate} className="infoButtonUser" type="submit">Update</button>
                 </form>
             </div>
