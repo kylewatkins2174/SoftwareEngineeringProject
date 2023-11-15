@@ -8,7 +8,7 @@ firstname nvarchar(255),
 lastname nvarchar(255),
 email nvarchar(255),
 username nvarchar(255),
-passw nvarchar(50),
+passw nvarchar(255),
 PRIMARY KEY (userid)
 );
 
