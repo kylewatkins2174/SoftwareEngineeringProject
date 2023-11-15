@@ -1,16 +1,16 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import requestServer from "../axios";
 
 export const AuthContext = createContext()
 
 export const AuthContextProvider = ({children}) => {
     const [userValues, setUserValues] = useState()
+    const [refresh, setRefresh] = useState(true)
 
     const login = async (inputs) => {
         const res = await requestServer.post("http://localhost:8800/api/auth/login", inputs, {
             withCredentials: true
         })
-
         setUserValues(res.data)
     }
 
@@ -20,19 +20,20 @@ export const AuthContextProvider = ({children}) => {
         requestServer.post("http://localhost:8800/api/auth/logout")
     }
 
-    const getUser = async() => {
+    const getUser = async () => {
         try {
             const res = await requestServer.post("http://localhost:8800/api/auth/userInfo");
+
             const user = {
             "firstname": res.data.firstname,
             "lastname": res.data.lastname,
             "username": res.data.username,
             };
-            setUserValues(user);
+             setUserValues(user);
             console.log("User data retrieved:", JSON.stringify(user));
         } catch (error) {
-            console.error("Error while fetching user data:", error);
             console.log("User not found");
+            setUserValues(undefined)
         }
     }
 
