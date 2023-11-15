@@ -59,9 +59,9 @@ function App() {
     {
       path:"/home",
       element: (
-        <ProtectedRoute>
+       // <ProtectedRoute>
           <Homepage/>
-        </ProtectedRoute>
+       // </ProtectedRoute>
       )
     },
     {
