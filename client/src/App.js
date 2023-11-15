@@ -82,17 +82,17 @@ function App() {
     {
       path:"/tradecenter",
       element:(
-        <ProtectedRoute>
+        //<ProtectedRoute>
           <TradeCenter/>
-        </ProtectedRoute>
+        //</ProtectedRoute>
       )
     },
     {
       path:"/insertitem",
       element:(
-        <ProtectedRoute>
+        //<ProtectedRoute>
           <InsertItem/>
-        </ProtectedRoute>
+        //</ProtectedRoute>
       )
     }
   ])
