@@ -7,25 +7,24 @@ import TradeCenter from "./pages/tradeCenter.jsx"
 import Homepage from "./pages/homePage"
 import Login from "./pages/login"
 import InsertItem from "./pages/InsertItem.jsx"
+import Navbar from "./components/navbar.jsx"
 
 
 function App() {
   const {userValues, getUser} = useContext(AuthContext)
-  const [refresh, setRefresh] = useState(true)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const init = async() => {
-      await getUser().then(setRefresh(false))
-    }
+    console.log("user values: " + userValues)
 
-    init()
-  },[])
+    if(userValues !== undefined){
+      setLoading(false)
+    }
+  }, [userValues])
+
 
   const ProtectedRoute = ({children}) => {
-    if(userValues === undefined){
-      if(refresh){
-        return
-      }
+    if(userValues === null){
       console.log("sending to /login")
       return(<Navigate to="/login"/>)
     }
@@ -33,7 +32,7 @@ function App() {
   }
 
   const ForwardRoute = ({children}) => {
-    if(userValues !== undefined){
+    if(userValues !== undefined && userValues !== null){
       console.log("sending to /home")
       return(<Navigate to="/home"/>)
     }
@@ -67,6 +66,7 @@ function App() {
       path:"/home",
       element: (
         <ProtectedRoute>
+          <Navbar/>
           <Homepage/>
         </ProtectedRoute>
       )
@@ -75,6 +75,7 @@ function App() {
       path:"/user",
       element:(
         <ProtectedRoute>
+          <Navbar/>
           <User/>
         </ProtectedRoute>
       )
@@ -82,26 +83,35 @@ function App() {
     {
       path:"/tradecenter",
       element:(
-        //<ProtectedRoute>
+        <ProtectedRoute>
+        <div>
+          <Navbar/>
           <TradeCenter/>
-        //</ProtectedRoute>
+        </div>
+        </ProtectedRoute>
       )
     },
     {
       path:"/insertitem",
       element:(
-        //<ProtectedRoute>
+        <ProtectedRoute>
           <InsertItem/>
-        //</ProtectedRoute>
+        </ProtectedRoute>
       )
     }
   ])
 
-  return (
-    <div>
-      <RouterProvider router = {router}/>
-    </div>
-  );
+
+  if(loading){
+    return <p>loading...</p>
+  }
+  else{
+    return(
+      <div>
+        <RouterProvider router = {router}/>
+      </div>
+    );
+  }
 }
 
 export default App;
