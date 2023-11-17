@@ -1,109 +1,85 @@
-import React from 'react';
+import {React, useContext, useEffect, useState} from 'react';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import './tradeCenter.scss';
+import {AuthContext} from "../contexts/authContext.js"
+import requestServer from '../axios';
 
-const TradeCenter = () => {
-    return (
-        <div className='body'>
-            <header className="section header">
-                <div className="h1-container">
-                    <h1>Things: Trade Center</h1>
-                </div>
-                <div>
-                    <div className="WelcomeUser">Welcome, User</div>
-                    <div className="Library">Library</div>
-                </div>
-            </header>
+const TradeCenter = () => { 
+  const {userValues} = useContext(AuthContext)
+  const [items, setItems] = useState()
+  const [loading, setLoading] = useState(true)
 
-            <div className="container">
-                <div className="container-title">Items for Trade</div>
-                <div className="item-section">
-                    {/* Book Section */}
-                    <div className="section">
-                        <h2>Book:</h2>
-                        <ul>
-                            <li>Title: The Great Gatsby</li>
-                            <li>Author: F. Scott Fitzgerald</li>
-                            <li>Vol: Volume 1</li>
-                        </ul>
-                        <div className="user-section">
-                            <h3>User:</h3>
-                            <ul>
-                                <li>User: Kyle</li>
-                                {/* Add more user details as needed */}
-                            </ul>
-                        </div>
-                    </div>
 
-                    {/* Another Book Section */}
-                    <div className="section">
-                        <h2>Book:</h2>
-                        <ul>
-                            <li>Title: To Kill a Mockingbird</li>
-                            <li>Author: Harper Lee</li>
-                            <li>Vol: Volume 2</li>
-                        </ul>
-                        <div className="user-section">
-                            <h3>User:</h3>
-                            <ul>
-                                <li>User: Travis</li>
-                                {/* Add more user details as needed */}
-                            </ul>
-                        </div>
-                    </div>
+  const getBooks = async() => {
+    try{
+      const res = await requestServer.post("http://localhost:8800/api/trade/getUserBooks", {"userid":1})
+      setItems(res.data)
+    }catch(error){
+      
+    }
+  }
 
-                    {/* Movie Section */}
-                    <div className="section">
-                        <h2>Movie:</h2>
-                        <ul>
-                            <li>Movie Title: The Titanic</li>
-                            {/* Add more movie items as needed */}
-                        </ul>
-                        <div className="user-section">
-                            <h3>User:</h3>
-                            <ul>
-                                <li>User: Ricky</li>
-                                {/* Add more user details as needed */}
-                            </ul>
-                        </div>
-                    </div>
+  useEffect(() => {
+    console.log("change to user in tradecenter " + JSON.stringify(userValues))
+    getBooks()
+    console.log(JSON.stringify(items))
 
-                    {/* CD Section */}
-                    <div className="section">
-                        <h2>CD:</h2>
-                        <ul>
-                            <li>CD Artist/Band: Daves Matthews Band</li>
-                            <li>CD Album: Crash</li>
-                            {/* Add more CD items as needed */}
-                        </ul>
-                        <div className="user-section">
-                            <h3>User:</h3>
-                            <ul>
-                                <li>User: Allison</li>
-                                {/* Add more user details as needed */}
-                            </ul>
-                        </div>
-                    </div>
+    if(items !== undefined){
+      setLoading(false)
+    }
+  }, [userValues])
 
-                    {/* Vinyl Section */}
-                    <div className="section">
-                        <h2>Vinyl:</h2>
-                        <ul>
-                            <li>Vinyl Artist/Band: Evanescence</li>
-                            <li>Vinyl Album: Fallen</li>
-                            {/* Add more Vinyl items as needed */}
-                        </ul>
-                        <div className="user-section">
-                            <h3>User:</h3>
-                            <ul>
-                                <li>User: Kelly</li>
-                                {/* Add more user details as needed */}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+    const renderItem = (data) =>{
+      try{
+        if(data.itemtype === "book"){
+          return(
+            <div>
+              <p>{data.itemtype}</p>
+              <p>{data.title}</p>
+              <p>{data.author}</p>
+              <p>{data.descr}</p>
+              <p>{userValues.username}</p>
+              <hr/>
             </div>
+          )
+        }
+        if(data.itemType === "movie"){
+          return(
+            <div>
+              <p>{data.itemType}</p>
+              <p>{data.itemName}</p>
+              <p>{data.director}</p>
+              <p>{data.itemOwner}</p>
+              <hr/>
+            </div>
+          )
+        }
+        return(
+          <p>error</p>
+        )
+      }catch(error){
+        console.log(error)
+      }
+
+    }
+
+    if(loading){
+      console.log("loading..")
+      return<p>loading...</p>
+    }
+    else{
+      return (
+        <div>
+          {items.map((item) => (
+            <div>
+              {renderItem(item)}
+            </div>
+          ))}
         </div>
-    );
+      );
+    }
+
+
 };
 
 export default TradeCenter;
