@@ -13,7 +13,9 @@ export const AuthContextProvider = ({children}) => {
                 const res = await requestServer.post("http://localhost:8800/api/auth/userInfo");
     
                 const user = {
+                "email": res.data.email,
                 "userid": res.data.userid,
+                "username": res.data.username,
                 "firstname": res.data.firstname,
                 "lastname": res.data.lastname,
                 "username": res.data.username,
