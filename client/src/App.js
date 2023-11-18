@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom"
 import { AuthContext } from "./contexts/authContext.js";
 import Register from './pages/register';
@@ -7,38 +7,45 @@ import TradeCenter from "./pages/tradeCenter.jsx"
 import Homepage from "./pages/homePage"
 import Login from "./pages/login"
 import InsertItem from "./pages/InsertItem.jsx"
+import Navbar from "./components/navbar.jsx"
+
 
 function App() {
-  console.log("attempting display")
   const {userValues, getUser} = useContext(AuthContext)
-  console.log(JSON.stringify(userValues))
+  const [loading, setLoading] = useState(true)
 
-  const [refresh, setRefresh] = useState(true)
+  useEffect(() => {
+    console.log("user values: " + userValues)
+
+    if(userValues !== undefined){
+      setLoading(false)
+    }
+  }, [userValues])
+
 
   const ProtectedRoute = ({children}) => {
-    if(userValues === undefined){
-      if(refresh){
-        getUser()
-        setRefresh(false)
-      }
+    if(userValues === null){
+      console.log("sending to /login")
       return(<Navigate to="/login"/>)
     }
-    console.log(JSON.stringify(userValues))
     return children;
   }
 
   const ForwardRoute = ({children}) => {
-    console.log("user values: " + JSON.stringify(userValues))
-    if(userValues !== undefined){
+    if(userValues !== undefined && userValues !== null){
+      console.log("sending to /home")
       return(<Navigate to="/home"/>)
-    }
-    if(refresh){
-      getUser()
     }
     return children
   }
 
   const router = createBrowserRouter([
+    {
+      path:"/",
+      element: (
+        <Navigate to="/login"/>
+      )
+    },
     {
       path:"/login",
       element: (
@@ -59,6 +66,7 @@ function App() {
       path:"/home",
       element: (
         <ProtectedRoute>
+          <Navbar/>
           <Homepage/>
         </ProtectedRoute>
       )
@@ -67,6 +75,7 @@ function App() {
       path:"/user",
       element:(
         <ProtectedRoute>
+          <Navbar/>
           <User/>
         </ProtectedRoute>
       )
@@ -74,26 +83,35 @@ function App() {
     {
       path:"/tradecenter",
       element:(
-        //<ProtectedRoute>
+        <ProtectedRoute>
+        <div>
+          <Navbar/>
           <TradeCenter/>
-        //</ProtectedRoute>
+        </div>
+        </ProtectedRoute>
       )
     },
     {
       path:"/insertitem",
       element:(
-        //<ProtectedRoute>
+        <ProtectedRoute>
           <InsertItem/>
-        //</ProtectedRoute>
+        </ProtectedRoute>
       )
     }
   ])
 
-  return (
-    <div>
-    <RouterProvider router = {router}/>
-  </div>
-  );
+
+  if(loading){
+    return <p>loading...</p>
+  }
+  else{
+    return(
+      <div>
+        <RouterProvider router = {router}/>
+      </div>
+    );
+  }
 }
 
 export default App;

@@ -1,0 +1,24 @@
+$container-height: 10 * 1vh;
+
+.navbar-container{
+    display: flex;
+    height: $container-height;
+    background-color: #cfcfcf;
+    align-items: center;
+    justify-content: center;
+
+    .navbar-link{
+        color: black;
+        padding: 20px;
+        font-size: 20px;
+        
+        text-decoration: none;
+    }
+
+
+}
+
+.color-bar{
+    background-color: orange;
+    height: 1px;
+}

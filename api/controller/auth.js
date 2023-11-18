@@ -3,23 +3,30 @@ import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 
 export const register = async(req,res) => {
+    console.log("registering...")
+
+
     const q = "SELECT * FROM users WHERE username = ?"
 
     try{
         db.query(q, [req.body.username], (error,rows,fields) => {
             if(error){
+                console.log("error: " + error)
                 return res.status(500).json(error)
             }
             if(rows.length > 0){
+                console.log("user exists ")
                 return res.status(409).json(`User ${rows[0].email} exists`)
             }
             else{
+                console.log("user not yet created... ")
                 const salt = bcrypt.genSaltSync(10)
                 const hash = bcrypt.hashSync(req.body.password, salt)
 
                 const insertQ = "INSERT INTO users VALUES(?)"
                 db.query(insertQ, [[null, req.body.firstname, req.body.lastname, req.body.email, req.body.username, hash]], (error, rows, fields) => {
                     if(error){
+                        console.log("error: " + error)
                         return res.status(500).json(error)
                     }
 
@@ -28,8 +35,10 @@ export const register = async(req,res) => {
             }
         })
     }catch(error){
-        console.log(error)
+        console.log("error" + error)
     }
+
+    console.log("end register")
 }
 
 export const login = async(req,res) => {
@@ -55,8 +64,6 @@ export const login = async(req,res) => {
 
 export const userInfo = (req, res) => {
     console.log("attempting to find user")
-
-    console.log("cookie" + req.cookies.accessToken)
     try{
         const accessToken = req.cookies.accessToken
 
@@ -69,12 +76,10 @@ export const userInfo = (req, res) => {
 
         const q = 'SELECT * FROM users WHERE userid = ?'
 
-        console.log("before query")
         db.query(q, [userId], async (error, rows, field) => {
             if(error){
                 console.log(error)
             }
-            console.log(JSON.stringify(rows[0]))
 
             return res.status(200).json(rows[0])
         })
