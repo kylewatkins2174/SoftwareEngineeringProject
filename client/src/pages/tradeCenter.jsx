@@ -1,5 +1,4 @@
 import {React, useContext, useEffect, useState} from 'react';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
 import './tradeCenter.scss';
 import {AuthContext} from "../contexts/authContext.js"
 import requestServer from '../axios';
