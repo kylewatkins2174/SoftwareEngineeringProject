@@ -1,17 +1,22 @@
 import { Link } from 'react-router-dom';
 import './homePage.scss'
+import ItemContainer from "../components/itemContainer.jsx"
+
+
 
 const homePage = () =>{
+
+
+
     return(
-        <div className='bodyContainerH'>
-            <div className='menuContainerH'>
-                <Link className="thingsTitleH" to="/home">Things</Link>
-                <div className="menuItemRowH">
-                    <span className="menuItemH" to="/user">Account</span>
-                    <Link className="menuItemH" to="/tradecenter">Trade</Link>
-                    <Link className="menuItemH" to="/user">Account</Link>
-                </div>
-            </div>
+        <div className='home-container'>
+            <ItemContainer class="book"/>
+
+            <ItemContainer class="cd"/>
+
+            <ItemContainer class="movie"/>
+
+            <ItemContainer class="vinyl"/>
         </div>
     )
 }

@@ -15,8 +15,6 @@ function App() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    console.log("user values: " + userValues)
-
     if(userValues !== undefined){
       setLoading(false)
     }

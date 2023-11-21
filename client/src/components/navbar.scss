@@ -1,24 +1,44 @@
 $container-height: 10 * 1vh;
 
+
+
 .navbar-container{
     display: flex;
-    height: $container-height;
-    background-color: #cfcfcf;
-    align-items: center;
-    justify-content: center;
 
-    .navbar-link{
-        color: black;
-        padding: 20px;
-        font-size: 20px;
-        
-        text-decoration: none;
+    .profile-container{
+        width: 20%;
+        background-color: #cfcfcf;
+
+        .person-icon{
+            padding-left: 3px;
+        }
+
+        h4{
+            margin: 0px;
+            padding-left: 5px;
+        }
+        h5{
+            margin: 0px;
+            padding-left: 5px;
+            padding-top: 5px;
+        }
+
     }
 
+    .navigation-container{
+        width: 80%;
+        display: flex;
+        height: $container-height;
+        background-color: #cfcfcf;
+        align-items: center;
+        justify-content: center;
 
-}
-
-.color-bar{
-    background-color: orange;
-    height: 1px;
+        .navbar-link{
+            color: black;
+            padding: 20px;
+            font-size: 20px;
+            
+            text-decoration: none;
+        }
+    }
 }

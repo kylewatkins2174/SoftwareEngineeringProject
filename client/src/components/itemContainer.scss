@@ -1,0 +1,22 @@
+.item-container{
+    background-color: #b1c5ff;
+    border-radius: 10px;
+    border: 1px solid orange;
+    width: 29 * 1vw;
+    margin: 5px;
+    padding:5px;
+
+    p {
+        margin: 0px;
+        padding: 5px;
+    }
+
+    .item-group-title{
+        margin: 5px;
+    }
+
+    hr{
+        margin:5px;
+        border-color: black;
+    }
+}

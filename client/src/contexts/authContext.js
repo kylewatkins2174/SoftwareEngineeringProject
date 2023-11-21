@@ -21,7 +21,6 @@ export const AuthContextProvider = ({children}) => {
                 "username": res.data.username,
                 };
                 
-                console.log("User data retrieved:", JSON.stringify(user));
                 setUserValues(user)
             } catch (error) {
                 console.log("User not found " + error);
