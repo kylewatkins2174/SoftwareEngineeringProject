@@ -13,20 +13,15 @@ const TradeCenter = () => {
     try{
       const res = await requestServer.post("http://localhost:8800/api/trade/getUserBooks", {"userid":1})
       setItems(res.data)
+      setLoading(false)
     }catch(error){
-      
+      console.log(error)
     }
   }
 
   useEffect(() => {
-    console.log("change to user in tradecenter " + JSON.stringify(userValues))
     getBooks()
-    console.log(JSON.stringify(items))
-
-    if(items !== undefined){
-      setLoading(false)
-    }
-  }, [userValues])
+  }, [])
 
     const renderItem = (data) =>{
       try{
@@ -63,14 +58,13 @@ const TradeCenter = () => {
     }
 
     if(loading){
-      console.log("loading..")
       return<p>loading...</p>
     }
     else{
       return (
         <div>
           {items.map((item) => (
-            <div>
+            <div key={item.itemName}>
               {renderItem(item)}
             </div>
           ))}

@@ -1,55 +1,8 @@
-.bodyContainerH{
-    background-color:#ADD8E6;
-    height: 100vh;
+$item-container-width: 10 * 1vw;
 
-    .menuContainerH{ 
-        background-color: #00008B; 
-        width: 100%;
-        height: 200px;
-  
-        .thingsTitleH{
-            font-weight: bold;
-            font-size: 50px;
-            position: relative;
-            margin: 1% 0% 0% 1%;
-            text-decoration: none;
-            color:#ADD8E6;
-         }
-        .thingsTitleH:hover{
-            animation: titleAnim 5s linear infinite;
-         }
-        .menuItemRowH {
-            margin-top: 80px;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr; 
-            grid-gap: 10px;
-	    }
-	    .menuItemH {
-            text-align: center;
-		    font-size: 40px;
-		    color: #ADD8E6;
-		    text-decoration:none;
-	    }
-        .menuItemH:hover {
-		    color: rgb(134, 134, 169); 
-	    }
-	    }
-        @keyframes titleAnim {
-            0% {transform: rotateZ(0deg);}
-            25% {transform: rotateZ(15deg);}
-            50% {transform: rotateZ(0deg);}
-            75% {transform: rotateZ(-15deg);}
-            100% {transform: rotateZ(0deg);}
-        }
-        @media screen and (max-width: 500px) {
-            .menuContainerHome {
-              float: none;
-              display: block;
-              text-align: left;
-            }
-            
-            .menuItemRowHome .menuItemHome {
-              float: none;
-            }
-        }
-    }
+.home-container{
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+}
+
