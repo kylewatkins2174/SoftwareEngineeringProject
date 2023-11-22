@@ -14,6 +14,7 @@ export const AuthContextProvider = ({children}) => {
     
                 const user = {
                 "userid": res.data.userid,
+                "email": res.data.email,
                 "firstname": res.data.firstname,
                 "lastname": res.data.lastname,
                 "username": res.data.username,

@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom'
-import './userPage.scss';
 import requestServer from "../axios"
+import {AuthContext} from "../contexts/authContext.js"
+import './userPage.scss';
+
 
 function User () {
-  const [isValidEmail, setIsValidEmail] = useState(true)
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  //const [data, setUser] = useState([]);
   const {userValues} = useContext(AuthContext)
-
   const [inputs, setInputs] = useState({
       "firstname" : "",
       "lastname" : "",
@@ -22,38 +22,7 @@ function User () {
       })
   }
 
-  const handleEmailChange = (e) => {
-      const email = e.target.value;
-      setIsValidEmail(emailRegex.test(e.target.value))
-      setInputs((prev) => {
-          return { ...prev, email }
-      })
-  }
-
-  const handleSubmit = (e) =>{
-      e.preventDefault()
-      if (!isValidEmail) {
-          setErr("Invalid email format")
-          return
-      }
-      console.log(JSON.stringify(inputs))
-
-      try{
-          requestServer.post("/auth/user", inputs).then(response => {
-              console.log(response)
-              
-          }).catch(err => {
-              console.log("error on user page")
-              setErr("Error updating information")
-          })
-      } catch(error) {
-          setErr(err)
-      }
-
-
-  }
-
- /* const handleUpdate = (e) =>{
+  const handleUpdate = (e) =>{
       e.preventDefault();
       console.log(JSON.stringify(inputs))
       requestServer.post("/auth/userPage", inputs).then(response => {
@@ -61,7 +30,7 @@ function User () {
       }).catch(err => {
           setErr(err)
       })
-  }*/
+  }
 
      /* useEffect(() => {
         const fetchUser = async () => {
@@ -76,27 +45,9 @@ function User () {
           } catch (error) {
           console.error('Error Fetching User Data:', error);
         }
-    
-        const handleUpdate = (e) =>{
-            e.preventDefault();
-            console.log(JSON.stringify(inputs))
-    
-            requestServer.post("/auth/userPage", inputs).then(response => {
-                console.log(response)
-            }).catch(err => {
-                setErr(err)
-            })
-        }
-      const [getThings, setThings] = useState([]);
-        useEffect(()=>{
-            const getThings= async ()=>{
-                const res = fetch('localhost:3306');
-                const getdata = (await res).json();
-                setThings(getdata);
-                console.log(getdata);
-            }
-            getThings();
-        },[]);*/
+      };
+      fetchUser();
+  },[]);*/
 
   return(  
 
@@ -106,14 +57,14 @@ function User () {
         <div className='infoContainerUser'>
           <h1 className='yourAccountUser'>Your Account</h1>
           <form>
-          <p className="userDataUser">{userValues.username}</p><br/>
-          <input onChange={handleEmailChange} name="email" className="inputUser" type="text" placeholder={userValues.email}></input><br/>
+          <p className="userDataUser">{userValues.username}</p>
+          <input onChange={handleChange} name="email" className="inputUser" type="text" placeholder={userValues.email}></input><br/>
           <input onChange={handleChange} name="firstname" className="inputUser" type="text" placeholder={userValues.firstname}></input><br/>
           <input onChange={handleChange} name="lastname" className="inputUser" type="text" placeholder={userValues.lastname}></input><br/><br/>
-          <button onChange={handleSubmit} className="infoButtonUser" type="submit">Update</button>
+          <button onChange={handleUpdate} className="infoButtonUser" type="submit">Update</button>
           </form>
         </div>
-        
-    )   
+    </div>
+)
 }
-export default User
+export default User;
