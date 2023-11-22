@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
+import "./InsertItem.scss"
 
-function AddItemToLibrary() {
+function InsertItem() {
   const [item, setItem] = useState("Book")
-
 
   const handleChange = (e) => {
     setItem(e.target.value)
@@ -51,12 +51,9 @@ function AddItemToLibrary() {
 
   }
 
-
   return (
     <div>
       <h1>Add Item to Library</h1>
-
-      
         <label htmlFor="item_list">Select Item:</label>
         <select id="item_list" name="item_list" onChange={handleChange}>
           <option value="Book">Book</option>
@@ -75,4 +72,4 @@ function AddItemToLibrary() {
   );
 }
 
-export default AddItemToLibrary;
+export default InsertItem;

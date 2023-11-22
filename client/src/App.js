@@ -8,6 +8,7 @@ import Homepage from "./pages/homePage"
 import Login from "./pages/login"
 import InsertItem from "./pages/InsertItem.jsx"
 import Navbar from "./components/navbar.jsx"
+import "./App.scss"
 
 
 function App() {
@@ -70,6 +71,15 @@ function App() {
       )
     },
     {
+      path:"/insertitem",
+      element: (
+        <ProtectedRoute>
+          <Navbar/>
+          <InsertItem/>
+        </ProtectedRoute>
+      )
+    },
+    {
       path:"/user",
       element:(
         <ProtectedRoute>
@@ -88,14 +98,6 @@ function App() {
         </div>
         </ProtectedRoute>
       )
-    },
-    {
-      path:"/insertitem",
-      element:(
-        <ProtectedRoute>
-          <InsertItem/>
-        </ProtectedRoute>
-      )
     }
   ])
 
@@ -105,7 +107,7 @@ function App() {
   }
   else{
     return(
-      <div>
+      <div className="global-container">
         <RouterProvider router = {router}/>
       </div>
     );

@@ -21,13 +21,8 @@ export const Navbar = () => {
                 <span><Link className="navbar-link" to={"/tradecenter"}>Trade Center</Link></span>
                 <p>|</p>
                 <span><Link className="navbar-link" to={"/user"}>User Page</Link></span>
-                    
-                
-
             </div>
-
         </div>
-
     )
 }
 

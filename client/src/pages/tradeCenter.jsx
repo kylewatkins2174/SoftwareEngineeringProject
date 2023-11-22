@@ -8,6 +8,20 @@ const TradeCenter = () => {
   const [items, setItems] = useState()
   const [loading, setLoading] = useState(true)
 
+  
+  const books = [
+    {
+      "title":"title here",
+      "description":"description here"
+    },
+    {
+      "title":"title 2 here",
+      "description": "description 2 here"
+    }
+    ]
+
+    console.log(books[0].title)
+
 
   const getBooks = async() => {
     try{
