@@ -9,11 +9,11 @@ export const Navbar = () => {
 
     return(
         <div className="navbar-container">
+            <Link className="thingsTitleNav" to="/home">Things</Link>
             <div className="profile-container">
                 <PersonIcon className="person-icon"/>
                 <h4>{userValues.username}</h4>
                 <h5>{userValues.firstname} {userValues.lastname}</h5>
-
             </div>
             <div className="navigation-container">
                 <span ><Link className="navbar-link" to={"/home"}>Home</Link></span>
