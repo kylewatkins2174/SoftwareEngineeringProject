@@ -53,7 +53,6 @@ function User () {
 
     <div className='bodyContainerUser'>
         <Link className="thingsTitleUser" to="/home">Things</Link>
-        <div id="avatarDisplay"></div>
         <div className='infoContainerUser'>
           <h1 className='yourAccountUser'>Your Account</h1>
           <form>
