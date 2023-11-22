@@ -28,7 +28,6 @@ userid int,
 title nvarchar(255),
 director nvarchar(255),
 descr nvarchar(255),
-dateposted date,
 PRIMARY KEY (movieid),
 FOREIGN KEY (userid) references Users(userid)
 );
@@ -40,8 +39,6 @@ null,
 "The Godfather",
 "Francis Ford Cappola",
 "Probably the best movie ever made",
-CAST('2015-12-26 15:32:06.427' AS DateTime)
-);
 
 create table books (
 itemtype nvarchar(50),
@@ -50,7 +47,6 @@ userid int,
 title nvarchar (255),
 author nvarchar (255),
 descr nvarchar (255),
-dateposted datetime,
 PRIMARY KEY (bookid),
 FOREIGN KEY (userid) references Users(userid)
 );
@@ -62,8 +58,6 @@ null,
 "The Great Gatsby",
 "F Scott Fitzerald",
 "This is a description of a book",
-CAST('2015-12-25 15:32:06.427' AS DateTime)
-);
 
 create table cds (
 itemtype nvarchar(50),
@@ -72,7 +66,6 @@ userid int,
 title nvarchar (255),
 artist nvarchar(100),
 descr nvarchar (255),
-dateposted date,
 PRIMARY KEY (cdid),
 FOREIGN KEY (userid) references Users(userid)
 );
@@ -84,8 +77,6 @@ null,
 "Night at the Opera",
 "Queen",
 "A description of this CD goes here",
-cast('2015-12-25 15:32:06.427' as datetime)
-);
 
 create table vinyls (
 itemtype nvarchar(50),
@@ -93,7 +84,58 @@ vinylid int auto_increment not null,
 userid int,
 title nvarchar(255),
 descr nvarchar (255),
-dateposted date,
 PRIMARY KEY (vinylid),
 FOREIGN KEY (userid) references Users(userid) 
 );
+
+create table movietrades(
+movietradeid int auto_increment not null,
+hostid int,
+sellerid int,
+hostmovieid int,
+sellermovieid int,
+dateoftrade date,
+FOREIGN KEY (hostid) references Users(userid),
+FOREIGN KEY (sellerid) references Users(userid),
+FOREIGN KEY (hostmovieid) references movies(movieid),
+FOREIGN KEY (sellermovieid) references movies(movieid)
+); 
+
+create table booktrades(
+booktradeid int auto_increment not null,
+hostid int,
+sellerid int,
+hostbookid int,
+sellerbookid int,
+dateoftrade date,
+FOREIGN KEY (hostid) references Users(userid),
+FOREIGN KEY (sellerid) references Users(userid),
+FOREIGN KEY (hostbookid) references books(bookid),
+FOREIGN KEY (sellerbookid) references books(bookid)
+); 
+
+create table cdtrades(
+cdtradeid int auto_increment not null,
+hostid int,
+sellerid int,
+hostcdid int,
+sellercdid int,
+dateoftrade date,
+FOREIGN KEY (hostid) references Users(userid),
+FOREIGN KEY (sellerid) references Users(userid),
+FOREIGN KEY (hostcdid) references cds(cdid),
+FOREIGN KEY (sellercdid) references cds(cdid)
+); 
+
+create table vinyltrades(
+vinyltradeid int auto_increment not null,
+hostid int,
+sellerid int,
+hostvinylid int,
+sellervinylid int,
+dateoftrade date,
+FOREIGN KEY (hostid) references Users(userid),
+FOREIGN KEY (sellerid) references Users(userid),
+FOREIGN KEY (hostvinylid) references vinyls(vinylid),
+FOREIGN KEY (sellervinylid) references vinyl(vinylid)
+); 
