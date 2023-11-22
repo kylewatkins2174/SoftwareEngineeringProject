@@ -7,7 +7,10 @@ $container-height: 10 * 1vh;
 
     .profile-container{
         width: 20%;
-        background-color: #cfcfcf;
+        background-color: #023047;
+
+        color:#fb8500;
+
 
         .person-icon{
             padding-left: 3px;
@@ -26,15 +29,18 @@ $container-height: 10 * 1vh;
     }
 
     .navigation-container{
+
+        color:#fb8500;
+
         width: 80%;
         display: flex;
         height: $container-height;
-        background-color: #cfcfcf;
+        background-color: #023047;
         align-items: center;
         justify-content: center;
 
         .navbar-link{
-            color: black;
+            color: white;
             padding: 20px;
             font-size: 20px;
             
