@@ -1,4 +1,4 @@
-$container-height: 10 * 1vh;
+$container-height: 13 * 1vh;
 
 .navbar-container{
     display: flex;
@@ -27,6 +27,20 @@ $container-height: 10 * 1vh;
             margin: 0px;
             padding-right: 5px;
             padding-top: 5px;
+        }
+        button{
+            background-color: #fb8500;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border:none;
+            margin:0px;
+            justify-content: center;
+            align-items: center;
+            margin-right: 0px;
+        }
+        button:hover{
+            background-color: #d06f00;
         }
 
     }
@@ -60,13 +74,23 @@ $container-height: 10 * 1vh;
     
         .thingsTitleNav:hover{
             animation: titleAnim 5s linear infinite;
+        
+            @keyframes titleAnim {
+                0% {transform: rotateZ(0deg);}
+                25% {transform: rotateZ(15deg);}
+                50% {transform: rotateZ(0deg);}
+                75% {transform: rotateZ(-15deg);}
+                100% {transform: rotateZ(0deg);}
+            }
         }
-        @keyframes titleAnim {
-            0% {transform: rotateZ(0deg);}
-            25% {transform: rotateZ(15deg);}
-            50% {transform: rotateZ(0deg);}
-            75% {transform: rotateZ(-15deg);}
-            100% {transform: rotateZ(0deg);}
+    }
+    @media screen and (max-width: 768px) {
+        .thingsTitleNav{
+            font-size: 35px;
+            align-items: center;
+        }
+        .navbar-link{
+            font-size: 15px;
         }
     }
 }

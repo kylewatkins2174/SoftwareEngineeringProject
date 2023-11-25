@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "./navbar.scss"
 import PersonIcon from '@mui/icons-material/Person';
 import { AuthContext } from "../contexts/authContext"
@@ -6,6 +6,7 @@ import { useContext } from "react"
 
 export const Navbar = () => {
     const {userValues} = useContext(AuthContext)
+    const {logout} = useContext(AuthContext)
 
     return(
         <div className="navbar-container">
@@ -14,6 +15,7 @@ export const Navbar = () => {
                 <PersonIcon className="person-icon"/>
                 <h4>{userValues.username}</h4>
                 <h5>{userValues.firstname} {userValues.lastname}</h5>
+                <button onClick={logout}>Logout</button>
             </div>
             <div className="navigation-container">
                 <span ><Link className="navbar-link" to={"/home"}>Home</Link></span>

@@ -1,5 +1,5 @@
 .bodyContainerUser{
-    background-color: #5CDB95;
+    background-color: #fff4d9;
     height: 100vh;
     display: flex;
 
@@ -15,7 +15,7 @@
         animation: titleAnim 5s linear infinite;
     }
     .yourAccountUser{
-        color:white; 
+        color:black; 
         text-align:center;
     }
 
@@ -26,13 +26,14 @@
         flex-direction: column;
         border-radius: 5%;
         margin:10% 25% 0% 25%;
-        background-color: #05386B;
+        background-color: #219ebc;
         height: 50vh;
         width: 50%;
 
         .userDataUser{
             text-align:center;
-            color: white;
+            color: black;
+            font-weight:bold;
             position: relative;
         }
         .inputUser{
@@ -64,7 +65,7 @@
 
         @keyframes colorChange {
             0% {color: black;}
-            100% {color: rgb(93, 175, 115);}
+            100% {color: grayscale($color: #333333)}
         }
         @keyframes titleAnim {
             0% {transform: rotateZ(0deg);}

@@ -6,7 +6,6 @@ import './userPage.scss';
 
 
 function User () {
-  //const [data, setUser] = useState([]);
   const {userValues} = useContext(AuthContext)
   const [inputs, setInputs] = useState({
       "firstname" : "",
@@ -32,27 +31,9 @@ function User () {
       })
   }
 
-     /* useEffect(() => {
-        const fetchUser = async () => {
-          try {
-            const res = await requestServer.post("http://localhost:8800/api/auth/userInfo", {"userid":1});
-            if (res.ok) {
-              console.log(data);
-              setUser(res.data);
-            } else {
-              alert('Error user data not fetched');
-            }
-          } catch (error) {
-          console.error('Error Fetching User Data:', error);
-        }
-      };
-      fetchUser();
-  },[]);*/
-
   return(  
 
     <div className='bodyContainerUser'>
-        <Link className="thingsTitleUser" to="/home">Things</Link>
         <div className='infoContainerUser'>
           <h1 className='yourAccountUser'>Your Account</h1>
           <form>
