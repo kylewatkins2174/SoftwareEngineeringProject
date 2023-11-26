@@ -14,25 +14,25 @@ const ItemContainer = (props) => {
 
         try{
             if(props.class === "book"){
-                const res = await requestServer.post("http://localhost:8800/api/trade/getUserBooks", {"userid":userValues.userid})
+                const res = await requestServer.post("http://localhost:8800/api/inventory/getUserBooks", {"userid":userValues.userid})
                 setItems(res.data)
                 console.log(items)
                 setLoading(false)
             }
             else if(props.class === "cd"){
-                const res = await requestServer.post("http://localhost:8800/api/trade/getUserCDs", {"userid":userValues.userid})
+                const res = await requestServer.post("http://localhost:8800/api/inventory/getUserCDs", {"userid":userValues.userid})
                 setItems(res.data)
                 console.log(items)
                 setLoading(false)
             }
             else if(props.class === "movie"){
-                const res = await requestServer.post("http://localhost:8800/api/trade/getUserMovies", {"userid":userValues.userid})
+                const res = await requestServer.post("http://localhost:8800/api/inventory/getUserMovies", {"userid":userValues.userid})
                 setItems(res.data)
                 console.log(items)
                 setLoading(false)
             }
             else if (props.class === "vinyl"){
-                const res = await requestServer.post("http://localhost:8800/api/trade/getUserVinyls", {"userid":userValues.userid})
+                const res = await requestServer.post("http://localhost:8800/api/inventory/getUserVinyls", {"userid":userValues.userid})
                 setItems(res.data)
                 console.log(items)
                 setLoading(false)
