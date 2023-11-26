@@ -1,14 +1,12 @@
 import express from 'express'
-import {getItems, getUserBooks, getUserCDs, getUserMovies, getUserVinyls} from "../controller/trade.js"
+import { getBooks, getCDs, getMovies, getVinyls } from '../controller/trade.js'
 
 const route = express.Router()
 
-route.post("/getItems", getItems)
-
-route.post("/getUserBooks", getUserBooks)
-route.post("/getUserMovies", getUserMovies)
-route.post("/getUserVinyls", getUserVinyls)
-route.post("/getUserCDs", getUserCDs)
+route.post("/getBooks", getBooks)
+route.post("/getMovies", getMovies)
+route.post("/getVinyls", getVinyls)
+route.post("/getCDs", getCDs)
 
 
 

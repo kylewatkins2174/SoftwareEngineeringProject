@@ -1,0 +1,52 @@
+.overlay-container {
+    
+    position: fixed;
+    display: flex;
+    background-color: white; /* Semi-transparent black overlay */
+    height: 70%;
+    width: 80 * 1vw;
+    margin-left: 10 * 1vw;
+    margin-right: 10 * 1vw;
+    margin-top: 10 * 1vh;
+    border-radius: 8px;
+    border: 5px solid black;
+    z-index: 1000;
+    
+    .user-section{
+        padding: 10px;
+        margin: 0px;
+        width: 45%;
+
+        h1{
+            margin-top: 55px;
+        }
+    }
+
+    .center-section{
+
+        .arrow-container{
+            background-color: red;
+            min-height: 80%;
+        }
+
+        .submit-container{
+            background-color: blue;
+            min-height: 20%;
+        }
+    }
+
+    .owner-section{
+        text-align: right;
+        padding: 10px;
+        margin: 0px;
+        width: 45%;
+    }
+
+    .exit-button{
+        max-height: 30px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        
+    }
+  }
