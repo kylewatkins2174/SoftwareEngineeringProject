@@ -13,6 +13,8 @@ export const TradeWindow = (props) => {
     const {userValues} = useContext(AuthContext)
     const [userItem, setUserItem] = useState()
 
+
+
     const handleExit = () => {
         updateVisibility()
     }
@@ -27,6 +29,7 @@ export const TradeWindow = (props) => {
     }
 
     const handleSubmit = async (e) => {
+        console.log("selecteditem: " + itemToTrade.item.title)
 
         const request = {
             userItemId : userItem,
