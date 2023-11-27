@@ -71,6 +71,7 @@ const Requests = () =>{
                         <div>
 
                             <p>You trade {request.useritem} for {request.ownername}'s {request.owneritem}</p>
+                            
                         </div>
                     ))}
     
