@@ -40,7 +40,7 @@ export const getMovies = async(req,res) => {
 }
 
 export const getVinyls = async(req,res) => {
-    const q = `select itemtype, title, musician, descr, username, vinyls.userid from vinyls
+    const q = `select itemtype, title, artist, descr, username, vinyls.userid from vinyls
                 join users on vinyls.userid = users.userid
                 where vinyls.userid != ?`
 

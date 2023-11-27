@@ -48,6 +48,37 @@ const ItemContainer = (props) => {
         getItems()
     }, [])
 
+    const ItemDetails = (item) => {
+        switch (props.class) {
+            case "book":
+                return (
+                    <div>
+                        <p>Author: {item.author}</p>
+                    </div>
+                );
+            case "cd":
+                return (
+                    <div>
+                        <p>Artist: {item.artist}</p>
+                    </div>
+                );
+            case "movie":
+                return (
+                    <div>
+                        <p>Director: {item.director}</p>
+                    </div>
+                );
+            case "vinyl":
+                return (
+                    <div>
+                        <p>Artist: {item.artist}</p>
+                    </div>
+                );
+            default:
+                return null;
+        }
+    };
+
     if(loading){
         return <p>loading</p>
     }
@@ -60,7 +91,7 @@ const ItemContainer = (props) => {
                     <div>
                         <hr/>
                         <h3>{item.title}</h3>
-                        <p>Author: {item.author}</p>
+                        {ItemDetails(item)}
                         <p>Description: {item.descr}</p>
                         <p>User: {userValues.username}</p>
                     </div>
