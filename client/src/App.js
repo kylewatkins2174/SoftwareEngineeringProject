@@ -8,6 +8,7 @@ import Homepage from "./pages/homePage"
 import Login from "./pages/login"
 import InsertItem from "./pages/InsertItem.jsx"
 import Navbar from "./components/navbar.jsx"
+import Requests from "./pages/itemRequests.jsx"
 import "./App.scss"
 
 
@@ -59,6 +60,15 @@ function App() {
         <ForwardRoute>
           <Register/>
         </ForwardRoute>
+      )
+    },
+    {
+      path:"/requests",
+      element:(
+        <ProtectedRoute>
+          <Navbar/>
+          <Requests/>
+        </ProtectedRoute> 
       )
     },
     {

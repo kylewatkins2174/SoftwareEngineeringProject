@@ -1,0 +1,33 @@
+.bodyContainerReq{
+    background-color: #fff4d9;
+    height: 100vh;
+    display: flex;
+
+    .boxReq{
+        position: relative;
+        background-color: #219ebc;
+        border-radius: 10px;
+        border: solid black 0.5px;
+        display: flex;
+        text-align:center;
+        justify-content: center;
+        margin: 20px;
+        width: 40%;
+        flex-grow:2;
+        
+        flex: 1;
+    }
+    .titleReq{
+        font-size: 30px;
+        position:relative;
+        display:block;
+        text-align:center;
+        color: black;
+        font-weight:bold;
+        position: relative;
+        margin-bottom: 20px;
+    }
+    .dataReq{
+        
+    }
+}
