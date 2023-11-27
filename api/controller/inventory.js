@@ -110,7 +110,7 @@ export const insertVinyl = async (req,res) => {
     const q = "INSERT INTO vinyls VALUES(?)"
 
     try{
-        db.query(q, [['vinyl',null,req.body.userid,req.body.title,req.body.musician,req.body.description]], (error, rows, fields) => {
+        db.query(q, [['vinyl',null,req.body.userid,req.body.title,req.body.artist,req.body.description]], (error, rows, fields) => {
             if(error){
                 console.log(error)
                 return res.status(500).json(error)

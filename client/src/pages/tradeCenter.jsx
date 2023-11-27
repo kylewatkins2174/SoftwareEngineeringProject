@@ -64,40 +64,40 @@ const TradeCenter = () => {
       if(option === "Book"){
         return(
           <div className='trade-center-div'>
-            <p>{data.title}</p>
-            <p>{data.author}</p>
-            <p>{data.descr}</p>
-            <p>{data.username}</p>
+            <h3>{data.title}</h3>
+            <p>Author: {data.author}</p>
+            <p>Description: {data.descr}</p>
+            <p>Owned by: {data.username}</p>
           </div>
         )
       }
       if(option === "Movie"){
         return(
           <div className='trade-center-div'>
-            <p>{data.title}</p>
-            <p>{data.director}</p>
-            <p>{data.descr}</p>
-            <p>{data.username}</p>
+            <h3>{data.title}</h3>
+            <p>Director: {data.director}</p>
+            <p>Description: {data.descr}</p>
+            <p>Owned by: {data.username}</p>
           </div>
         )
       }
       if(option === "Vinyl"){
         return(
           <div className='trade-center-div'>
-            <p>{data.title}</p>
-            <p>{data.musician}</p>
-            <p>{data.descr}</p>
-            <p>{data.username}</p>
+            <h3>{data.title}</h3>
+            <p>Artist: {data.artist}</p>
+            <p>Description: {data.descr}</p>
+            <p>Owned by: {data.username}</p>
           </div>
         )
       }
       if(option === "CD"){
         return(
           <div className='trade-center-div'>
-            <p>{data.title}</p>
-            <p>{data.artist}</p>
-            <p>{data.descr}</p>
-            <p>{data.username}</p>
+            <h3>{data.title}</h3>
+            <p>Artist: {data.artist}</p>
+            <p>Description: {data.descr}</p>
+            <p>Owned by: {data.username}</p>
           </div>
         )
       }

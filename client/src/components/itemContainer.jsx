@@ -93,7 +93,6 @@ const ItemContainer = (props) => {
                         <h3>{item.title}</h3>
                         {ItemDetails(item)}
                         <p>Description: {item.descr}</p>
-                        <p>User: {userValues.username}</p>
                     </div>
                 ))}
             </div>
