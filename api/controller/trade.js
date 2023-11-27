@@ -1,7 +1,7 @@
 import db from "../connect.js"
 
 export const getBooks = async(req,res) => {
-    const q = `select itemtype, title, author, descr, username, books.userid
+    const q = `select itemtype, title, author, descr, username, books.userid, books.itemid
                 from books
                 join users on books.userid = users.userid
                 where books.userid != (?)`
@@ -79,6 +79,8 @@ export const getCDs = async(req,res) => {
 
 export const requestBook = async(req,res) => {
     const q = `INSERT INTO bookrequests VALUES (?)`
+
+    console.log("userid:" + req.body.userId + " ownerid:" + req.body.ownerId)
 
     try{
         db.query(q, [[null, req.body.userItemId, req.body.ownerItemId, req.body.userId, req.body.ownerId]], (error, rows, fields) => {

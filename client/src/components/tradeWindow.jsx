@@ -29,17 +29,17 @@ export const TradeWindow = (props) => {
     }
 
     const handleSubmit = async (e) => {
-        console.log("selecteditem: " + itemToTrade.item.title)
+
+
 
         const request = {
             userItemId : userItem,
-            ownerItemId : itemToTrade.item.userid,
+            ownerItemId : itemToTrade.item.itemid,
             userId: userValues.userid,
             ownerId: itemToTrade.item.userid
         }
 
-        console.log(JSON.stringify(request))
-        console.log("item type: " + itemType)
+        console.log("request details: " + JSON.stringify(request))
 
         if(itemType === "Book"){
             console.log("sending request to book")

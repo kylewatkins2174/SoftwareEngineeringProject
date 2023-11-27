@@ -10,7 +10,7 @@ import InsertItem from "./pages/InsertItem.jsx"
 import Navbar from "./components/navbar.jsx"
 import Requests from "./pages/itemRequests.jsx"
 import "./App.scss"
-
+import ItemRequests from "./pages/itemRequests.jsx"
 
 function App() {
   const {userValues, getUser} = useContext(AuthContext)
@@ -86,6 +86,15 @@ function App() {
         <ProtectedRoute>
           <Navbar/>
           <InsertItem/>
+        </ProtectedRoute>
+      )
+    },
+    {
+      path:"/requests",
+      element: (
+        <ProtectedRoute>
+          <Navbar/>
+          <ItemRequests/>
         </ProtectedRoute>
       )
     },
