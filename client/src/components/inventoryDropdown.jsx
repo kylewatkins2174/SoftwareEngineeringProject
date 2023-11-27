@@ -42,6 +42,10 @@ const ItemDropdown = (props) => {
         }
     }
 
+    const handleChange = (e) => {
+        props.onChange(e)
+    }
+
     useEffect(() => {
         getInventory()
     }, [])
@@ -57,9 +61,9 @@ const ItemDropdown = (props) => {
         console.log("not loading")
         return(
             <div>
-                <select>
+                <select name="user-item" onChange={handleChange}>
                     {items.map((items) => (
-                        <option>{items.title}</option>
+                        <option key={items.userid} value={items.userid}>{items.title}</option>
                     ))}
                 </select>
             </div>

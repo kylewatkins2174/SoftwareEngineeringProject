@@ -1,11 +1,11 @@
 import { createContext, useState, useEffect } from "react";
 import requestServer from "../axios";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext()
 
 export const AuthContextProvider = ({children}) => {
     const [userValues, setUserValues] = useState()
-    const [isLoading, setIsLoading] = useState()
 
     useEffect(() => {
         const getUser = async() => {
@@ -47,8 +47,9 @@ export const AuthContextProvider = ({children}) => {
 
     const logout = async () => {
         console.log("attempt logout")
-        setUserValues(undefined)
+        setUserValues(null)
         requestServer.post("http://localhost:8800/api/auth/logout")
+        
     }
 
     return(
