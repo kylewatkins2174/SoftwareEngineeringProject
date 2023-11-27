@@ -1,21 +1,25 @@
-import { useState, useEffect } from 'react'
-
+import { useState, useEffect, useContext } from 'react'
+import requestServer from "../axios"
+import { Link, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../contexts/authContext'
 
 function AddItemToLibrary() {
+  const navigate = useNavigate()
+  const {userValues} = useContext(AuthContext)
   const [item, setItem] = useState("Book")
   const [inputs, setInputs] = useState({
-    "Book_Title": "",
-    "Book_Author": "",
-    "Book_Description": "",
-    "Movie_Title": "",
-    "Movie_Director": "",
-    "Movie_Description":"",
-    "CD_Artist": "",
-    "CD_Album": "",
-    "CD_Description": "",
-    "Vinyl_Artist": "",
-    "Vinyl_Album": "",
-    "Vinyl_Description": ""
+    "title": "",
+    "author": "",
+    "descr": "",
+    "title": "",
+    "director": "",
+    "description":"",
+    "artist": "",
+    "title": "",
+    "descr": "",
+    "artist": "",
+    "title": "",
+    "descr": ""
   });
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [isMaxChar, setIsMaxChar] = useState(true)
@@ -37,30 +41,30 @@ function AddItemToLibrary() {
     switch (item) {
       case "Book":
         return (
-          inputs.Book_Title.trim() !== "" &&
-          inputs.Book_Author.trim() !== "" &&
-          inputs.Book_Description.trim() !== ""
+          inputs.title.trim() !== "" &&
+          inputs.author.trim() !== "" &&
+          inputs.descr.trim() !== ""
         );
 
       case "CD":
         return (
-          inputs.CD_Artist.trim() !== "" &&
-          inputs.CD_Album.trim() !== "" &&
-          inputs.CD_Description.trim() !== ""
+          inputs.artist.trim() !== "" &&
+          inputs.title.trim() !== "" &&
+          inputs.descr.trim() !== ""
         );
 
       case "Movie":
         return (
-          inputs.Movie_Title.trim() !== "" &&
-          inputs.Movie_Director.trim() !== "" &&
-          inputs.Movie_Description.trim() !== ""
+          inputs.title.trim() !== "" &&
+          inputs.director.trim() !== "" &&
+          inputs.descr.trim() !== ""
         );
 
       case "Vinyl":
         return (
-          inputs.Vinyl_Artist.trim() !== "" &&
-          inputs.Vinyl_Album.trim() !== "" &&
-          inputs.Vinyl_Description.trim() !== ""
+          inputs.artist.trim() !== "" &&
+          inputs.title.trim() !== "" &&
+          inputs.descr.trim() !== ""
         );
 
       default:
@@ -83,12 +87,27 @@ function AddItemToLibrary() {
   const handleSubmit = (e) => {
     e.preventDefault()
 
+    console.log(JSON.stringify(inputs))
     const { isValid} = validateInputs()
     if (isValid) {
       console.log("Form submitted:", inputs)
     } else {
       setErr("Please fill out all required fields")
     }
+    try{
+      const endpoint = `/inventory/insert${item}`;
+      requestServer.post(endpoint, inputs).then(response => {
+          console.log(response)
+          navigate("/home")
+      }).catch(err => {
+          console.log(`Error on Insert ${item} page:`)
+          setErr(`Error inserting ${item.toLowerCase()}`)
+      })
+  }catch(error){
+      console.log("error on Insert Item page2")
+      setErr("error")
+  }
+
   }
 
 
@@ -96,47 +115,47 @@ function AddItemToLibrary() {
     if (item === "Book") {
       return (
         <div>
-          <label htmlFor="Book_Title">Book Title:</label>
-          <input name="Book_Title" type="text" onChange={handleChar} /><br /><br />
+          <label htmlFor="title">Book Title:</label>
+          <input name="title" type="text" onChange={handleChar} /><br /><br />
 
-          <label htmlFor="Book_Author">Author:</label>
-          <input type="text" id="Book_Author" name="Book_Author" onChange={handleChar} /><br /><br />
+          <label htmlFor="author">Author:</label>
+          <input type="text" id="author" name="author" onChange={handleChar} /><br /><br />
 
-          <label htmlFor="Book_Description">Description:</label>
-          <input type="text" id="Book_Description" name="Book_Description" onChange={handleChar} /><br /><br />
+          <label htmlFor="descr">Description:</label>
+          <input type="text" id="descr" name="descr" onChange={handleChar} /><br /><br />
         </div>
       );
     } else if (item === "CD") {
       return (
         <div>
-          <label htmlFor="CD_Artist">CD Artist/Band:</label>
-          <input type="text" id="CD_Artist" name="CD_Artist" onChange={handleChar} /><br /><br />
-          <label htmlFor="CD_Album">Album:</label>
-          <input type="text" id="CD_Album" name="Album" onChange={handleChar} /><br /><br />
-          <label htmlFor="CD_Description">Description:</label>
-          <input type="text" id="CD_Description" name="CD_Description" onChange={handleChar} /><br /><br />
+          <label htmlFor="artist">CD Artist/Band:</label>
+          <input type="text" id="artist" name="musician" onChange={handleChar} /><br /><br />
+          <label htmlFor="album">Album:</label>
+          <input type="text" id="album" name="title" onChange={handleChar} /><br /><br />
+          <label htmlFor="description">Description:</label>
+          <input type="text" id="description" name="description" onChange={handleChar} /><br /><br />
         </div>
       );
     } else if (item === "Movie") {
       return (
         <div>
-          <label htmlFor="Movie_Title">Movie Title:</label>
-          <input type="text" id="Movie_Title" name="Movie_Title" onChange={handleChar} /><br /><br />
-          <label htmlFor="Movie_Director">Director :</label>
-          <input type="text" id="Movie_Director" name="Movie_Director" onChange={handleChar} /><br /><br />
-          <label htmlFor="Movie_Description">Description:</label>
-          <input type="text" id="Movie_Description" name="Movie_Description" onChange={handleChar} /><br /><br />
+          <label htmlFor="title">Movie Title:</label>
+          <input type="text" id="title" name="title" onChange={handleChar} /><br /><br />
+          <label htmlFor="director">Director :</label>
+          <input type="text" id="director" name="director" onChange={handleChar} /><br /><br />
+          <label htmlFor="descr">Description:</label>
+          <input type="text" id="descr" name="description" onChange={handleChar} /><br /><br />
         </div>
       );
     } else if (item === "Vinyl") {
       return (
         <div>
-          <label htmlFor="Vinyl_Artist">Artist/Band:</label>
-          <input type="text" id="Vinyl_Artist" name="Vinyl_Artist" onChange={handleChar} /><br /><br />
-          <label htmlFor="Vinyl_Album">Album:</label>
-          <input type="text" id="Vinyl_Album" name="Vinyl_Album" onChange={handleChar} /><br /><br />
-          <label htmlFor="Vinyl_Description">Description:</label>
-          <input type="text" id="Vinyl_Descriptiohn" name="Vinyl_Description" onChange={handleChar} /><br /><br />
+          <label htmlFor="artist">Artist/Band:</label>
+          <input type="text" id="artist" name="musician" onChange={handleChar} /><br /><br />
+          <label htmlFor="title">Album:</label>
+          <input type="text" id="title" name="title" onChange={handleChar} /><br /><br />
+          <label htmlFor="descr">Description:</label>
+          <input type="text" id="descr" name="description" onChange={handleChar} /><br /><br />
         </div>
       );
     }

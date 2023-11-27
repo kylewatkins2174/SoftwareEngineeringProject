@@ -73,10 +73,12 @@ export const getUserVinyls = async(req,res) => {
 }
 
 export const insertBook = async (req,res) => {
-    const q = "INSERT INTO books VALUES(?)"
+    const q = "INSERT INTO books (itemtype, userid, title, author, descr) VALUES (?, ?, ?, ?, ?)";
 
-    try{
-        db.query(q, [['book',null,req.body.userid,req.body.title,req.body.author,req.body.description]], (error, rows, fields) => {
+    try {
+        console.log("Request Body:", req.body);
+        db.query(q, ['book', 1, req.body.title, req.body.author, req.body.descr], (error, rows, fields) => {
+
             if(error){
                 console.log(error)
                 return res.status(500).json(error)
@@ -90,10 +92,14 @@ export const insertBook = async (req,res) => {
 }
 
 export const insertMovie = async (req,res) => {
-    const q = "INSERT INTO movies VALUES(?)"
+    const q = "INSERT INTO movies (itemtype, userid, title, director, descr) VALUES (?, ?, ?, ?, ?)"
 
-    try{
-        db.query(q, [['movie',null,req.body.userid,req.body.title,req.body.director,req.body.description]], (error, rows, fields) => {
+    try {
+        console.log("Request Body:", req.body);
+        db.query(q, ['movie', req.body.userid, req.body.title, req.body.director, req.body.description], (error, rows, fields) => {
+            console.log("Executing query:", q)
+            console.log("Values:", ["movie", req.body.userid, req.body.title, req.body.director, req.body.description])
+
             if(error){
                 console.log(error)
                 return res.status(500).json(error)
@@ -107,10 +113,16 @@ export const insertMovie = async (req,res) => {
 }
 
 export const insertVinyl = async (req,res) => {
-    const q = "INSERT INTO vinyls VALUES(?)"
+    const q = "INSERT INTO vinyls (itemtype, userid, title, artist, descr) VALUES (?, ?, ?, ?, ?)"
+
 
     try{
-        db.query(q, [['vinyl',null,req.body.userid,req.body.title,req.body.musician,req.body.description]], (error, rows, fields) => {
+        
+        console.log("Request Body:", req.body)
+        db.query(q, ['vinyl', req.body.userid, req.body.title, req.body.musician, req.body.description], (error, rows, fields) => {
+            console.log("Executing query:", q)
+            console.log("Values:", ["vinyl", req.body.userid, req.body.title, req.body.musician, req.body.description])
+
             if(error){
                 console.log(error)
                 return res.status(500).json(error)
@@ -124,10 +136,13 @@ export const insertVinyl = async (req,res) => {
 }
 
 export const insertCD = async (req,res) => {
-    const q = "INSERT INTO cds VALUES(?)"
+    const q = "INSERT INTO cds (itemtype, userid, title, artist, descr) VALUES (?, ?, ?, ?, ?)"
 
     try{
-        db.query(q, [['cd',null,req.body.userid,req.body.title,req.body.musician,req.body.description]], (error, rows, fields) => {
+        console.log("Request Body:", req.body);
+        db.query(q, ['cd', req.body.userid, req.body.title, req.body.musician, req.body.description], (error, rows, fields) => {
+            console.log("Executing query:", q);
+            console.log("Values:", ["cd", req.body.userid, req.body.title, req.body.musician, req.body.description])
             if(error){
                 console.log(error)
                 return res.status(500).json(error)
