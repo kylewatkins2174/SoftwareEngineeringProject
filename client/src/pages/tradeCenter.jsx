@@ -64,7 +64,6 @@ const TradeCenter = () => {
       if(option === "Book"){
         return(
           <div className='trade-center-div'>
-            <p>{data.itemtype}</p>
             <p>{data.title}</p>
             <p>{data.author}</p>
             <p>{data.descr}</p>
@@ -75,7 +74,6 @@ const TradeCenter = () => {
       if(option === "Movie"){
         return(
           <div className='trade-center-div'>
-            <p>{data.itemtype}</p>
             <p>{data.title}</p>
             <p>{data.director}</p>
             <p>{data.descr}</p>
@@ -86,7 +84,6 @@ const TradeCenter = () => {
       if(option === "Vinyl"){
         return(
           <div className='trade-center-div'>
-            <p>{data.itemtype}</p>
             <p>{data.title}</p>
             <p>{data.musician}</p>
             <p>{data.descr}</p>
@@ -97,7 +94,6 @@ const TradeCenter = () => {
       if(option === "CD"){
         return(
           <div className='trade-center-div'>
-            <p>{data.itemtype}</p>
             <p>{data.title}</p>
             <p>{data.artist}</p>
             <p>{data.descr}</p>

@@ -12,7 +12,7 @@ password nvarchar(255),
 PRIMARY KEY (userid)
 );
 
-insert into users values(
+insert into users values (
 null,
 "admin first",
 "admin last",
@@ -48,7 +48,7 @@ PRIMARY KEY (movieid),
 FOREIGN KEY (userid) references Users(userid)
 );
 
-insert into movies values(
+insert into movies values (
 "movie",
 null,
 1,
@@ -310,58 +310,54 @@ null,
 "A sublime exploration of improvisation and modal jazz that captivates with its cool brilliance."
 );
 
-create table movietrades(
-movietradeid int auto_increment not null,
-hostid int,
-sellerid int,
-hostmovieid int,
-sellermovieid int,
-dateoftrade date,
-PRIMARY KEY (movietradeid),
-FOREIGN KEY (hostid) references Users(userid),
-FOREIGN KEY (sellerid) references Users(userid),
-FOREIGN KEY (hostmovieid) references movies(movieid),
-FOREIGN KEY (sellermovieid) references movies(movieid)
+create table movierequests (
+movierequestid int auto_increment not null,
+useritemid int,
+owneritemid int,
+userid int,
+ownerid int,
+PRIMARY KEY (movierequestid),
+FOREIGN KEY (useritemid) references movies(movieid),
+FOREIGN KEY (owneritemid) references movies(movieid),
+FOREIGN KEY (userid) references Users(userid),
+FOREIGN KEY (ownerid) references Users(userid)
 ); 
 
-create table booktrades(
-booktradeid int auto_increment not null,
-hostid int,
-sellerid int,
-hostbookid int,
-sellerbookid int,
-dateoftrade date,
-PRIMARY KEY (booktradeid),
-FOREIGN KEY (hostid) references Users(userid),
-FOREIGN KEY (sellerid) references Users(userid),
-FOREIGN KEY (hostbookid) references books(bookid),
-FOREIGN KEY (sellerbookid) references books(bookid)
+create table bookrequests (
+bookrequestid int auto_increment not null,
+useritemid int,
+owneritemid int,
+userid int,
+ownerid int,
+PRIMARY KEY (bookrequestid),
+FOREIGN KEY (useritemid) references books(bookid),
+FOREIGN KEY (owneritemid) references books(bookid),
+FOREIGN KEY (userid) references Users(userid),
+FOREIGN KEY (ownerid) references Users(userid)
 ); 
 
-create table cdtrades(
-cdtradeid int auto_increment not null,
-hostid int,
-sellerid int,
-hostcdid int,
-sellercdid int,
-dateoftrade date,
-PRIMARY KEY (cdtradeid),
-FOREIGN KEY (hostid) references Users(userid),
-FOREIGN KEY (sellerid) references Users(userid),
-FOREIGN KEY (hostcdid) references cds(cdid),
-FOREIGN KEY (sellercdid) references cds(cdid)
+create table cdrequests (
+cdrequestid int auto_increment not null,
+useritemid int,
+owneritemid int,
+userid int,
+ownerid int,
+PRIMARY KEY (cdrequestid),
+FOREIGN KEY (useritemid) references cds(cdid),
+FOREIGN KEY (owneritemid) references cds(cdid),
+FOREIGN KEY (userid) references Users(userid),
+FOREIGN KEY (ownerid) references Users(userid)
 ); 
 
-create table vinyltrades(
-vinyltradeid int auto_increment not null,
-hostid int,
-sellerid int,
-hostvinylid int,
-sellervinylid int,
-dateoftrade date,
-PRIMARY KEY (vinyltradeid),
-FOREIGN KEY (hostid) references Users(userid),
-FOREIGN KEY (sellerid) references Users(userid),
-FOREIGN KEY (hostvinylid) references vinyls(vinylid),
-FOREIGN KEY (sellervinylid) references vinyls(vinylid)
+create table vinylrequests (
+vinylrequestid int auto_increment not null,
+useritemid int,
+owneritemid int,
+userid int,
+ownerid int,
+PRIMARY KEY (vinylrequestid),
+FOREIGN KEY (useritemid) references vinyls(vinylid),
+FOREIGN KEY (owneritemid) references vinyls(vinylid),
+FOREIGN KEY (userid) references Users(userid),
+FOREIGN KEY (ownerid) references Users(userid)
 ); 
