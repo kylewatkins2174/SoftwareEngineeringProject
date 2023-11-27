@@ -63,7 +63,7 @@ const ItemDropdown = (props) => {
             <div>
                 <select name="user-item" onChange={handleChange}>
                     {items.map((items) => (
-                        <option key={items.userid} value={items.userid}>{items.title}</option>
+                        <option key={items.userid} value={items.itemid}>{items.title}</option>
                     ))}
                 </select>
             </div>

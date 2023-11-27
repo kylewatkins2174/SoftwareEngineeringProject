@@ -40,7 +40,7 @@ export const getMovies = async(req,res) => {
 }
 
 export const getVinyls = async(req,res) => {
-    const q = `select itemtype, title, musician, descr, username, vinyls.userid from vinyls
+    const q = `select itemtype, title, artist, descr, username, vinyls.userid from vinyls
                 join users on vinyls.userid = users.userid
                 where vinyls.userid != ?`
 
@@ -81,7 +81,7 @@ export const requestBook = async(req,res) => {
     const q = `INSERT INTO bookrequests VALUES (?)`
 
     try{
-        db.query(q, [req.body.userItemId, req.body.ownerItemId, req.body.userId, req.body.ownerId], (error, rows, fields) => {
+        db.query(q, [[null, req.body.userItemId, req.body.ownerItemId, req.body.userId, req.body.ownerId]], (error, rows, fields) => {
             if(error){
                 return res.status(500).json(error)
             }
@@ -93,10 +93,10 @@ export const requestBook = async(req,res) => {
 }
 
 export const requestMovie = async(req,res) => {
-    const q = `INSERT INTO movierequest VALUES (?)`
+    const q = `INSERT INTO movierequests VALUES (?)`
 
     try{
-        db.query(q, [req.body.userItemId, req.body.ownerItemId, req.body.userId, req.body.ownerId], (error, rows, fields) => {
+        db.query(q, [[null, req.body.userItemId, req.body.ownerItemId, req.body.userId, req.body.ownerId]], (error, rows, fields) => {
             if(error){
                 return res.status(500).json(error)
             }
@@ -111,7 +111,7 @@ export const requestCD = async(req,res) => {
     const q = `INSERT INTO cdrequests VALUES (?)`
 
     try{
-        db.query(q, [req.body.userItemId, req.body.ownerItemId, req.body.userId, req.body.ownerId], (error, rows, fields) => {
+        db.query(q, [[null, req.body.userItemId, req.body.ownerItemId, req.body.userId, req.body.ownerId]], (error, rows, fields) => {
             if(error){
                 return res.status(500).json(error)
             }
@@ -126,7 +126,7 @@ export const requestVinyl = async(req,res) => {
     const q = `INSERT INTO vinylrequests VALUES (?)`
 
     try{
-        db.query(q, [req.body.userItemId, req.body.ownerItemId, req.body.userId, req.body.ownerId], (error, rows, fields) => {
+        db.query(q, [[null, req.body.userItemId, req.body.ownerItemId, req.body.userId, req.body.ownerId]], (error, rows, fields) => {
             if(error){
                 return res.status(500).json(error)
             }
