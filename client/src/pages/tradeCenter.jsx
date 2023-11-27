@@ -132,7 +132,7 @@ const TradeCenter = () => {
     return (
       <div>
 
-        <TradeWindow isVisible={windowVisible} updateVisibility={updateVisibility} itemToTrade = {itemToTrade}/>
+        <TradeWindow isVisible={windowVisible} updateVisibility={updateVisibility} itemToTrade = {itemToTrade} itemType={option}/>
 
         <select onChange={handleChange}>
           <option value="Book">Books</option>
