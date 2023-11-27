@@ -44,6 +44,11 @@ const Requests = () =>{
         return(
             <div className="bodyContainerReq">
 
+                <div>
+
+
+                </div>
+
                 <select onChange={handleChange}>
                 <option value="Book">Books</option>
                 <option value="Movie">Movies</option>
@@ -52,16 +57,21 @@ const Requests = () =>{
                 </select>
 
 
+
+
                 <div className="boxReq">
                     <h1>Accept/Decline requests</h1>
-
                     {requests.map((request) => (
                         <div>
                             <p>{request.username} requests {request.owneritem} for {request.useritem}</p>
+                            <br/>
+                            <button>Accept</button><button>Decline</button>
+                            <hr/>
                         </div>
                     ))}
 
-
+                    <br/><br/>
+                    <i>Trades will be assumed to occur at the Lowman Student Center at 3PM on fridays when accepted</i>
                 </div>
     
     
@@ -69,12 +79,14 @@ const Requests = () =>{
                     <h1>Your requests</h1>
                     {userRequests.map((request) => (
                         <div>
-
                             <p>You trade {request.useritem} for {request.ownername}'s {request.owneritem}</p>
-                            
+                            <br/>
+                            <button>Accept</button><button>Decline</button>
+                            <hr/>
                         </div>
                     ))}
-    
+                        <br/><br/>
+                    <i>Trades will be assumed to occur at the Lowman Student Center at 3PM on fridays when accepted</i>
                 </div>
             </div>
         )
