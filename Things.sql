@@ -312,56 +312,56 @@ null,
 
 create table movietrades(
 movietradeid int auto_increment not null,
-hostid int,
-sellerid int,
-hostmovieid int,
-sellermovieid int,
+userid int,
+ownerid int,
+usermovieid int,
+ownermovieid int,
 dateoftrade date,
 PRIMARY KEY (movietradeid),
-FOREIGN KEY (hostid) references Users(userid),
-FOREIGN KEY (sellerid) references Users(userid),
-FOREIGN KEY (hostmovieid) references movies(movieid),
-FOREIGN KEY (sellermovieid) references movies(movieid)
+FOREIGN KEY (userid) references Users(userid),
+FOREIGN KEY (ownerid) references Users(userid),
+FOREIGN KEY (usermovieid) references movies(movieid),
+FOREIGN KEY (ownermovieid) references movies(movieid)
 ); 
 
 create table booktrades(
 booktradeid int auto_increment not null,
-hostid int,
-sellerid int,
-hostbookid int,
-sellerbookid int,
+userid int,
+ownerid int,
+userbookid int,
+ownerbookid int,
 dateoftrade date,
 PRIMARY KEY (booktradeid),
-FOREIGN KEY (hostid) references Users(userid),
-FOREIGN KEY (sellerid) references Users(userid),
-FOREIGN KEY (hostbookid) references books(bookid),
-FOREIGN KEY (sellerbookid) references books(bookid)
+FOREIGN KEY (userid) references Users(userid),
+FOREIGN KEY (ownerid) references Users(userid),
+FOREIGN KEY (userbookid) references books(bookid),
+FOREIGN KEY (ownerbookid) references books(bookid)
 ); 
 
 create table cdtrades(
 cdtradeid int auto_increment not null,
-hostid int,
-sellerid int,
-hostcdid int,
-sellercdid int,
+userid int,
+ownerid int,
+usercdid int,
+ownercdid int,
 dateoftrade date,
 PRIMARY KEY (cdtradeid),
-FOREIGN KEY (hostid) references Users(userid),
-FOREIGN KEY (sellerid) references Users(userid),
-FOREIGN KEY (hostcdid) references cds(cdid),
-FOREIGN KEY (sellercdid) references cds(cdid)
+FOREIGN KEY (userid) references Users(userid),
+FOREIGN KEY (ownerid) references Users(userid),
+FOREIGN KEY (usercdid) references cds(cdid),
+FOREIGN KEY (ownercdid) references cds(cdid)
 ); 
 
 create table vinyltrades(
 vinyltradeid int auto_increment not null,
-hostid int,
-sellerid int,
-hostvinylid int,
-sellervinylid int,
+userid int,
+ownerid int,
+uservinylid int,
+ownervinylid int,
 dateoftrade date,
 PRIMARY KEY (vinyltradeid),
-FOREIGN KEY (hostid) references Users(userid),
-FOREIGN KEY (sellerid) references Users(userid),
-FOREIGN KEY (hostvinylid) references vinyls(vinylid),
-FOREIGN KEY (sellervinylid) references vinyls(vinylid)
+FOREIGN KEY (userid) references Users(userid),
+FOREIGN KEY (ownerid) references Users(userid),
+FOREIGN KEY (uservinylid) references vinyls(vinylid),
+FOREIGN KEY (ownervinylid) references vinyls(vinylid)
 ); 
